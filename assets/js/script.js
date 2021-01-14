@@ -1,6 +1,6 @@
 var movieTitle = "Space Jam";
 var container = $(".container");
-var APIKey = "ty0YVPz0Fq0MudSDkY5wN7tltSStxsxi"
+var APIKey = ""
 var score = 10
 
 function gameOver (){
