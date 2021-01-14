@@ -1,0 +1,7 @@
+ol {
+    list-style: none;
+}
+li {
+    max-width: 500px;
+    margin: 20px;
+}
