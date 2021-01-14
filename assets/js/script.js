@@ -1,3 +1,9 @@
+
+var movieTitle = "Space Jam";
+var container = $(".container");
+var APIKey = ""
+var score = 10
+
 var hintArr = [
     "1996", 
     "Animation",
@@ -13,8 +19,6 @@ var timer = $("#timer");
 function hintTimer() {
 
     let timeLeft = 45;
-    // Populate the list
-    console.log(hintArr[0]);
 
     // set all except #1 as hidden
     for (let i = 0; i < hintArr.length; i++) {
@@ -62,3 +66,36 @@ function hintTimer() {
 }
 
 hintTimer();
+
+
+function gameOver (){
+    var endingDiv = $("<div>");
+    endingDiv.attr("id", "endingDiv");
+    container.prepend(endingDiv);
+    var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${APIKey}&limit=3`;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function(response) {
+          var results = response.data;
+          console.log(response)
+
+          for (var i = 0; i < results.length; i++) {
+
+            var movieGif = $("<img>");
+            movieGif.attr("src", results[i].images.fixed_height.url);
+
+            endingDiv.prepend(movieGif);
+          }
+        });
+    
+    var scoreDiv = $("<h1>");
+    scoreDiv.attr("id", "finalScore")
+    scoreDiv.text("GAME OVER! Your Score: " + score)
+    container.prepend(scoreDiv);
+
+}
+
+gameOver();
