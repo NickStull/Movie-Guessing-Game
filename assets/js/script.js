@@ -3,7 +3,7 @@ movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 var container = $(".container");
-var APIKey = ""
+var APIKey = "ty0YVPz0Fq0MudSDkY5wN7tltSStxsxi"
 var score = 10
 
 var hintArr = [
@@ -75,6 +75,7 @@ function gameOver() {
     endingDiv.attr("id", "endingDiv");
     container.prepend(endingDiv);
     var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${APIKey}&limit=3`;
+    
 
     $.ajax({
         url: queryURL,
