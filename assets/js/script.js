@@ -9,16 +9,6 @@ var score = 10
 var movieInfo = {}
 
 
-var hintArr = [
-    movieInfo.released,
-    movieInfo.genre,
-    movieInfo.director,
-    movieInfo.rated,
-    movieInfo.production,
-    movieInfo.actors,
-    movieInfo.plot,
-]
-
 var timer = $("#timer");
 
 $.ajax({
@@ -26,6 +16,8 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
     movieInfo = response
+    console.log(movieInfo)
+    hintTimer();
 
 });
 
@@ -35,13 +27,13 @@ function hintTimer() {
     let timeLeft = 45;
 
     // set all except #1 as hidden
-    for (let i = 0; i < hintArr.length; i++) {
+    // for (let i = 0; i < hintArr.length; i++) {
 
-        // Hide them all
-        $(`#hint${i + 1}`).attr("style", "visibility: hidden;");// Put this hints into the list
-        $(`#hint${i + 1}`).text(hintArr[i]);
+    //     // Hide them all
+    //     $(`#hint${i + 1}`).attr("style", "visibility: hidden;");// Put this hints into the list
+    //     $(`#hint${i + 1}`).text(hintArr[i]);
 
-    }
+    // }
 
     var timeInterval = setInterval(function () {
         // Show the time remaining in the upper right corner
@@ -50,19 +42,19 @@ function hintTimer() {
         // console.log(timeLeft)
         // If less than 10 seconds change text to red and weight to bold
         switch (timeLeft) {
-            case 45: $("#hint1").attr("style", "visibility: visible;");
+            case 45: console.log(movieInfo.Genre);
                 break;
-            case 40: $("#hint2").attr("style", "visibility: visible;");
+            case 40: console.log(movieInfo.Released);
                 break;
-            case 35: $("#hint3").attr("style", "visibility: visible;");
+            case 35: console.log(movieInfo.Rated);
                 break;
-            case 30: $("#hint4").attr("style", "visibility: visible;");
+            case 30: console.log(movieInfo.Production);
                 break;
-            case 25: $("#hint5").attr("style", "visibility: visible;");
+            case 25: console.log(movieInfo.Director);
                 break;
-            case 20: $("#hint6").attr("style", "visibility: visible;");
+            case 20: console.log(movieInfo.Actors);
                 break;
-            case 15: $("#hint7").attr("style", "visibility: visible;");
+            case 15: console.log(movieInfo.Plot);
                 break;
         }
 
@@ -81,37 +73,37 @@ function hintTimer() {
 
 }
 
-hintTimer();
 
 
-function gameOver() {
-    var endingDiv = $("<div>");
-    endingDiv.attr("id", "endingDiv");
-    container.prepend(endingDiv);
-    var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`;
+// Function below saved for later
+// function gameOver() {
+//     var endingDiv = $("<div>");
+//     endingDiv.attr("id", "endingDiv");
+//     container.prepend(endingDiv);
+//     var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`;
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-        .then(function (response) {
-            var results = response.data;
-            console.log(response)
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     })
+//         .then(function (response) {
+//             var results = response.data;
+//             console.log(response)
 
-            for (var i = 0; i < results.length; i++) {
+//             for (var i = 0; i < results.length; i++) {
 
-                var movieGif = $("<img>");
-                movieGif.attr("src", results[i].images.fixed_height.url);
+//                 var movieGif = $("<img>");
+//                 movieGif.attr("src", results[i].images.fixed_height.url);
 
-                endingDiv.prepend(movieGif);
-            }
-        });
+//                 endingDiv.prepend(movieGif);
+//             }
+//         });
 
-    var scoreDiv = $("<h1>");
-    scoreDiv.attr("id", "finalScore")
-    scoreDiv.text("GAME OVER! Your Score: " + score)
-    container.prepend(scoreDiv);
+//     var scoreDiv = $("<h1>");
+//     scoreDiv.attr("id", "finalScore")
+//     scoreDiv.text("GAME OVER! Your Score: " + score)
+//     container.prepend(scoreDiv);
 
-}
+// }
 
-gameOver();
+// gameOver();
