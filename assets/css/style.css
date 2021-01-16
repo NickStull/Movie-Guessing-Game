@@ -24,6 +24,15 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
 }
+li {
+    max-width: 500px;
+    margin: 0px;
+}
+
+.input-label-text {
+    color:#c6d1d8;
+}
+/* added missing } */
 /* Hero text */
 .hero-section .hero-section-text {
     margin-top: 22.5em;
@@ -73,7 +82,7 @@ body {
 
 .topbar-responsive {
     background: #2c3840;
-    padding: 1rem 1.5rem;
+    padding: 0rem 0rem;
   }
   
   .topbar-responsive .topbar-responsive-logo {
@@ -100,7 +109,7 @@ body {
   
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive .menu a {
-      padding: 0.875rem 0;
+      padding: 0rem 0;
     }
   }
   
@@ -125,7 +134,7 @@ body {
   
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive {
-      padding: 0.75rem;
+      padding: 0.00rem;
     }
     .topbar-responsive .top-bar-title {
       position: relative;
@@ -197,6 +206,14 @@ body {
       -webkit-animation: fadeIn 1s ease-in;
               animation: fadeIn 1s ease-in;
     }
+  }
+  
+/* sticky nav css */
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+   top: 0;
   }
   
   
