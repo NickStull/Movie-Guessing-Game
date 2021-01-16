@@ -25,52 +25,21 @@
       <div class="top-bar-right">
         <ul class="menu simple vertical medium-horizontal">
           <li>
-            <form>
-              <label for="movie" class="input-label-text">Guess that movie!</label><br>
-              <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit"><br>
-              <small id="game-timer"><strong>Timer(looks better on mobile)</strong></small>
+            <form action="/action_page.php">
+            <label for="movie" class="input-label-text">Guess that movie!</label><br>
+            <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit" class="my-submit"><br>
+            <small id="game-timer">Time Remaining: 15</small>
             </form>
           </li>
-          <li><button id="next-clue" type="button" class="button hollow topbar-responsive-button">Next Clue</button>
-          </li>
+          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button">Next Clue</button></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="grid-x grid-padding-x align-spaced">
+  
 
-    <div class="cell small-11 medium-6 large-4">
-      <div class="card" style="width: 350px;">
-        <div id="clue-type0" class="card-divider">
-          Clue Type
-        </div>
-        <div id="clue-content0" class="card-section">
-          <p>Clue Content. Michael Jordan Short Clues
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="cell small-11 medium-6 large-4">
-      <div class="card" style="width: 350px;">
-        <div id="clue-type1" class="card-divider">
-          Clue Type
-        </div>
 
-        <div id="topbar-responsive" class="topbar-responsive-links">
-          <div class="top-bar-right">
-            <ul class="menu simple vertical medium-horizontal">
-              <li>
-                <form action="/action_page.php">
-                <label for="movie" class="input-label-text">Guess that movie!</label><br>
-                <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit" class="my-submit"><br>
-                <small id="game-timer">Time Remaining: 15</small>
-                </form>
-              </li>
-              <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button">Next Clue</button></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        
       <div class="grid-x grid-padding-x align-justified cards-container">
         <div class="cell small-11 medium-6 large-4 my-cell">
           <div class="card my-card" style="width: 350px;">
@@ -138,28 +107,7 @@
             </div>
             </div>
         </div>
-        
-       
-        
-
       </div>
-    </div>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/js/script.js"></script>
