@@ -35,7 +35,8 @@ li {
 /* added missing } */
 /* Hero text */
 .hero-section .hero-section-text {
-    margin-top: 22.5em;
+    /* margin-top: 22.5em; */
+    margin-top: 40vh;
     color: #fefefe;
     text-shadow: 1px 1px 2px #0a0a0a;
 }
@@ -48,10 +49,6 @@ li {
     border-radius: 5px;
 }
 
-/* spacing */
-.spacing {
-    height: 80px;
-}
 /* The team */
 #contributors {
     display: flex;
@@ -69,11 +66,29 @@ footer {
     width: 100%;
 }
 
-@media screen and (max-width: 640px) {    
+@media screen and (max-height: 480px) {
+    .hero-section {
+        height: 70vh;
+    }
+    .hero-section .hero-section-text {
+        /* margin-top: 22.5em; */
+        margin-top: 35vh;
+    }
+    #start-button {
+        margin-top: 0px;
+        width: 100px;
+        font-size: 20px;
+        background-color: rgb(93, 192, 93);
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width: 640px) {
+
     footer {
         position:relative;
     }
 }
+
 
 /* Pictures */
 .thumbnail {
