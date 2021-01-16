@@ -5,8 +5,9 @@ var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 var container = $(".container");
 var omdbAPIKey = ""
 var giphyAPIKey = ""
-var score = 10
+var score = 100
 var movieInfo = {}
+var hintNum = 0
 
 
 var timer = $("#timer");
@@ -16,7 +17,7 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
     movieInfo = response
-    console.log(movieInfo)
+    // console.log(movieInfo)
     hintTimer();
 
 });
@@ -25,38 +26,19 @@ $.ajax({
 function hintTimer() {
 
     let timeLeft = 45;
+    console.log(timeLeft);
 
-    // set all except #1 as hidden
-    // for (let i = 0; i < hintArr.length; i++) {
-
-    //     // Hide them all
-    //     $(`#hint${i + 1}`).attr("style", "visibility: hidden;");// Put this hints into the list
-    //     $(`#hint${i + 1}`).text(hintArr[i]);
-
-    // }
+    if (hintNum === 0){
+        console.log("Genre: " + movieInfo.Genre);
+    }
 
     var timeInterval = setInterval(function () {
         // Show the time remaining in the upper right corner
         timer.text(`Time Remaining: ${timeLeft}`);
-        // console countdown
-        // console.log(timeLeft)
-        // If less than 10 seconds change text to red and weight to bold
-        switch (timeLeft) {
-            case 45: console.log(movieInfo.Genre);
-                break;
-            case 40: console.log(movieInfo.Released);
-                break;
-            case 35: console.log(movieInfo.Rated);
-                break;
-            case 30: console.log(movieInfo.Production);
-                break;
-            case 25: console.log(movieInfo.Director);
-                break;
-            case 20: console.log(movieInfo.Actors);
-                break;
-            case 15: console.log(movieInfo.Plot);
-                break;
-        }
+        //reduce score and timer by 1
+        score--
+        timeLeft--;
+        console.log(timeLeft)
 
         if (timeLeft < 10 && timeLeft > 0) {
             timer.attr("style", "color: red; font-weight: bold;")
@@ -64,16 +46,38 @@ function hintTimer() {
         // Game over if timer runs out or all questions are answered
         else if (timeLeft === 0) {
             // Stop the timer
+            console.log("Answer: " + movieInfo.Title)
             clearInterval(timeInterval);
 
         }
-        timeLeft--;
+        
 
     }, 1000);
 
 }
 
+function loadNextQuestion(){
+    // console.log("next-question")
+    //adds 1 to hint num
+    hintNum++
+    //checks to see wh
+    switch (hintNum) {
+            case 1: console.log("Release Date: " + movieInfo.Released);
+                break;
+            case 2: console.log("Rated: " + movieInfo.Rated);
+                break;
+            case 3: console.log("Produced by: " + movieInfo.Production);
+                break;
+            case 4: console.log("Directed by: " + movieInfo.Director);
+                break;
+            case 5: console.log("Actors: " + movieInfo.Actors);
+                break;
+            case 6: console.log("Plot: " + movieInfo.Plot);
+                break;
+        }
+}
 
+$("#next-clue").on("click", loadNextQuestion);
 
 // Function below saved for later
 // function gameOver() {
@@ -107,3 +111,36 @@ function hintTimer() {
 // }
 
 // gameOver();
+
+
+//SAVING THIS BELOW IN CASE IT IS NEEDED.
+// at the moment I don't believe we will need this functionality any more.
+
+// console countdown
+        // console.log(timeLeft)
+        // If less than 10 seconds change text to red and weight to bold
+        // switch (timeLeft) {
+        //     case 45: console.log(movieInfo.Genre);
+        //         break;
+        //     case 40: console.log(movieInfo.Released);
+        //         break;
+        //     case 35: console.log(movieInfo.Rated);
+        //         break;
+        //     case 30: console.log(movieInfo.Production);
+        //         break;
+        //     case 25: console.log(movieInfo.Director);
+        //         break;
+        //     case 20: console.log(movieInfo.Actors);
+        //         break;
+        //     case 15: console.log(movieInfo.Plot);
+        //         break;
+        // }
+
+         // set all except #1 as hidden
+    // for (let i = 0; i < hintArr.length; i++) {
+
+    //     // Hide them all
+    //     $(`#hint${i + 1}`).attr("style", "visibility: hidden;");// Put this hints into the list
+    //     $(`#hint${i + 1}`).text(hintArr[i]);
+
+    // }

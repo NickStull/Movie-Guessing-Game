@@ -36,49 +36,83 @@ li {
 /* added missing } */
 /* Hero text */
 .hero-section .hero-section-text {
-    margin-top: 22.5em;
+    /* margin-top: 22.5em; */
+    margin-top: 40vh;
     color: #fefefe;
     text-shadow: 1px 1px 2px #0a0a0a;
 }
 /* Hero image start button */
 #start-button {
-    margin-top: 1.5em;
+    margin-top: 30px;
     width: 100px;
     font-size: 20px;
     background-color: rgb(93, 192, 93);
     border-radius: 5px;
 }
-/* Contributors text */
-#contributors-callout {
-    color: #fefefe;
-    background-color: #121212;
-}
+
 /* The team */
 #contributors {
     display: flex;
-    color: #fefefe; 
-    text-align: left;
+    color: #fefefe;
+    /* flex-shrink: 0; */
 }
-/* Each team members cell */
-.small-3 {
-    display: flex;
-    float: left;
-    height: auto;
+#container {
+    position: relative;
+    /* min-height: 100vh; */
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-height: 480px) {
+    .hero-section {
+        height: 70vh;
+    }
+    .hero-section .hero-section-text {
+        /* margin-top: 22.5em; */
+        margin-top: 35vh;
+    }
+    #start-button {
+        margin-top: 0px;
+        width: 100px;
+        font-size: 20px;
+        background-color: rgb(93, 192, 93);
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width: 640px) {
+
+    footer {
+        position:relative;
+    }
+}
+
+
 /* Pictures */
 .thumbnail {
     /* margin-top: 10px; */
+    display: flex;
+    float: left;
     max-width: 75px;
     min-width: 75px;
     border-radius: 5px 20px 5px;
+    text-align: left;
+    margin-right: 10px;
 }
 /* Names */
 .name-link {
+    display: block;
     margin-top: 15px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 16px;
     color: #fefefe;
+    text-align: left;
+    /* justify-content:left; */
 }
+
 /* nav bar css */
 
 .topbar-responsive {
