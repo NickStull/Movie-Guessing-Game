@@ -7,20 +7,6 @@ var omdbAPIKey = "20874aee"
 var giphyAPIKey = ""
 var score = 10
 var movieInfo = {}
-
-//guess logic
-
-var userGuess = "space jam";
-$.ajax({
-    url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
-    method: "GET"
-}).then(function (response2) {
-    guessResult = response2
-    console.log(guessResult)
-});
-
-
-
 var timer = $("#timer");
 
 $.ajax({
@@ -31,6 +17,23 @@ $.ajax({
     console.log(movieInfo)
     hintTimer();
 
+});
+
+//guess logic
+//whole thing needs to run on click
+
+//this need to be directed to the submit text field
+var userGuess = response.Title;
+
+$.ajax({
+    url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+    method: "GET"
+}).then(function (response2) {
+
+    if (response2.Search[0].imdbID === response.imdbID) {
+        //test script
+        alert("you win")
+    }
 });
 
 
