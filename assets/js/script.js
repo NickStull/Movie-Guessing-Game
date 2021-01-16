@@ -3,7 +3,7 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 var container = $(".container");
-var omdbAPIKey = "20874aee"
+var omdbAPIKey = ""
 var giphyAPIKey = ""
 var score = 100
 var movieInfo = {}
