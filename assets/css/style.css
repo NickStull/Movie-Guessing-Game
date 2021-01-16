@@ -12,14 +12,18 @@ ol {
 }
 li {
     max-width: 500px;
-    margin: 20px;
+    margin: 0px;
+}
+
+.input-label-text {
+    color:#c6d1d8;
 }
 
 /* nav bar css */
 
 .topbar-responsive {
     background: #2c3840;
-    padding: 1rem 1.5rem;
+    padding: 0rem 0rem;
   }
   
   .topbar-responsive .topbar-responsive-logo {
@@ -46,7 +50,7 @@ li {
   
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive .menu a {
-      padding: 0.875rem 0;
+      padding: 0rem 0;
     }
   }
   
@@ -71,7 +75,7 @@ li {
   
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive {
-      padding: 0.75rem;
+      padding: 0.00rem;
     }
     .topbar-responsive .top-bar-title {
       position: relative;
@@ -143,6 +147,14 @@ li {
       -webkit-animation: fadeIn 1s ease-in;
               animation: fadeIn 1s ease-in;
     }
+  }
+  
+/* sticky nav css */
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+   top: 0;
   }
   
   
