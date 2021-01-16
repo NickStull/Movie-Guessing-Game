@@ -1,5 +1,6 @@
 * {
     justify-content: center;
+    font-family: lato;
 }
 
 body {
@@ -81,7 +82,7 @@ li {
 /* nav bar css */
 
 .topbar-responsive {
-    background: #2c3840;
+    background: #212121;
     padding: 0rem 0rem;
   }
   
@@ -91,7 +92,7 @@ li {
   }
   
   .topbar-responsive .menu {
-    background: #2c3840;
+    background: #212121;
   }
   
   .topbar-responsive .menu li:last-of-type {
@@ -128,7 +129,7 @@ li {
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive .menu .topbar-responsive-button {
       width: 100%;
-      margin: 0.875rem 0;
+      margin: 0.875rem, 0;
     }
   }
   
@@ -215,5 +216,57 @@ li {
     position: sticky;
    top: 0;
   }
+/* clue card css */
+  .cards-container {
+    margin-top: 10px;
+  }
+
+.my-card {
+  border-radius: 30px;
+  border: 0px;
+}
+
+  .my-card-divider {
+    background-color: #1db954;
+    color: #212121;
+    font-weight: bold;
+  }
+
+  .my-cell {
+    margin-right: 25px;
+  }
+  
+  .my-card-section {
+    background-color: #b3b3b3;
+    font-weight: bold;
+  }
+
+  /* button css */
+.my-submit {
+  background-color: #b3b3b3;
+  color: #212121;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  border: #121212;
+  border-radius: 15px;
+}
+
+#next-clue {
+  background-color: #1db954;
+  color: #212121;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  border: #121212;
+}
+
+/* game timer font */
+
+#game-timer {
+  font-family: Orbitron;
+}
+
+
   
   

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Guessing Game</title>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -22,83 +23,84 @@
               <li>
                 <form action="/action_page.php">
                 <label for="movie" class="input-label-text">Guess that movie!</label><br>
-                <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit"><br>
-                <small id="game-timer"><strong>Timer(looks better on mobile)</strong></small>
+                <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit" class="my-submit"><br>
+                <small id="game-timer">Time Remaining: 15</small>
                 </form>
               </li>
-              <li><button id="next-clue" type="button" class="button hollow topbar-responsive-button">Next Clue</button></li>
+              <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button">Next Clue</button></li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="grid-x grid-padding-x align-spaced">
-        
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-            <div id="clue-type0" class="card-divider">
+      <div class="grid-x grid-padding-x align-justified cards-container">
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
               Clue Type
             </div>
-            <div id="clue-content0" class="card-section">
+            <div id="clue-content0" class="card-section my-card-section">
               <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
             </div>
         </div>
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-          <div id="clue-type1" class="card-divider">
-            Clue Type
-          </div>
-          <div id="clue-content1" class="card-section">
-            <p>Clue Content. Michael Jordan long clues dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
-            </p>
-          </div>
-          </div>
-        </div>
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-            <div id="clue-type2" class="card-divider">
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
               Clue Type
             </div>
-            <div id="clue-content2" class="card-section">
-              <p>Clue Content. Michael Jordan Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
             </div>
         </div>
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-            <div class="card-divider">
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
               Clue Type
             </div>
-            <div class="card-section">
-              <p>little baby short clue. Michael odio distinctio autem laboriosam aperiam!
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
             </div>
         </div>
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-            <div class="card-divider">
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
               Clue Type
             </div>
-            <div class="card-section">
-              <p>Clue Content. Michael Jordan Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
             </div>
         </div>
-        <div class="cell small-11 medium-6 large-4">
-          <div class="card" style="width: 350px;">
-            <div class="card-divider">
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
               Clue Type
             </div>
-            <div class="card-section">
-              <p>Clue Content. Michael Jordan Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
             </div>
         </div>
+        <div class="cell small-11 medium-6 large-4 my-cell">
+          <div class="card my-card" style="width: 350px;">
+            <div id="clue-type0" class="card-divider my-card-divider">
+              Clue Type
+            </div>
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>Clue Content. Michael Jordan Short Clues
+              </p>
+            </div>
+            </div>
+        </div>
+        
+       
         
       </div>
       
