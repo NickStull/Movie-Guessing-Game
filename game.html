@@ -22,11 +22,11 @@
               <li>
                 <form action="/action_page.php">
                 <label for="movie" class="input-label-text">Guess that movie!</label><br>
-                <input type="tel" id="movie" name="movie" placeholder="space jam"><input type="submit"><br>
-                <small><strong>Timer(looks better on mobile)</strong></small>
+                <input type="tel" id="movie-input" name="movie" placeholder="space jam"><input type="submit"><br>
+                <small id="game-timer"><strong>Timer(looks better on mobile)</strong></small>
                 </form>
               </li>
-              <li><button type="button" class="button hollow topbar-responsive-button">Next Question</button></li>
+              <li><button id="next-clue" type="button" class="button hollow topbar-responsive-button">Next Clue</button></li>
             </ul>
           </div>
         </div>
@@ -35,10 +35,10 @@
         
         <div class="cell small-11 medium-6 large-4">
           <div class="card" style="width: 350px;">
-            <div class="card-divider">
+            <div id="clue-type0" class="card-divider">
               Clue Type
             </div>
-            <div class="card-section">
+            <div id="clue-content0" class="card-section">
               <p>Clue Content. Michael Jordan Short Clues
               </p>
             </div>
@@ -46,10 +46,10 @@
         </div>
         <div class="cell small-11 medium-6 large-4">
           <div class="card" style="width: 350px;">
-          <div class="card-divider">
+          <div id="clue-type1" class="card-divider">
             Clue Type
           </div>
-          <div class="card-section">
+          <div id="clue-content1" class="card-section">
             <p>Clue Content. Michael Jordan long clues dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
             </p>
           </div>
@@ -57,10 +57,10 @@
         </div>
         <div class="cell small-11 medium-6 large-4">
           <div class="card" style="width: 350px;">
-            <div class="card-divider">
+            <div id="clue-type2" class="card-divider">
               Clue Type
             </div>
-            <div class="card-section">
+            <div id="clue-content2" class="card-section">
               <p>Clue Content. Michael Jordan Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi odit repellat nihil similique aut, cum quisquam amet magnam impedit officia soluta laudantium debitis! Ad qui, odio distinctio autem laboriosam aperiam!
               </p>
             </div>
