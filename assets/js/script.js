@@ -11,29 +11,35 @@ var timer = $("#timer");
 
 $.ajax({
     url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
-    method: "GET"
+    method: "GET",
+    async: false,
 }).then(function (response) {
     movieInfo = response
-    console.log(movieInfo)
+    console.log(movieInfo.Title)
     hintTimer();
 
 });
 
 //guess logic
 //whole thing needs to run on click
-
 //this need to be directed to the submit text field
-var userGuess = response.Title;
 
-$.ajax({
-    url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
-    method: "GET"
-}).then(function (response2) {
+$("#next-clue").click(function () {
+    var userGuess = movieInfo.Title;
+    console.log(userGuess);
 
-    if (response2.Search[0].imdbID === response.imdbID) {
-        //test script
-        alert("you win")
-    }
+    $.ajax({
+        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+        method: "GET"
+    }).then(function (response2) {
+        console.log(response2.Search[0].imdbID)
+        console.log(movieInfo.imdbID)
+        console.log(response2.Search[0].imdbID == movieInfo.imdbID);
+        if (response2.Search[0].imdbID === movieInfo.imdbID) {
+            //test script
+            alert("you win")
+        }
+    });
 });
 
 
