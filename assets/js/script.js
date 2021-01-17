@@ -10,7 +10,7 @@ var movieInfo = {}
 var hintNum = 0
 
 
-var timer = $("#timer");
+var timer = $("#game-timer");
 
 $.ajax({
     url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
@@ -18,7 +18,7 @@ $.ajax({
     async: false,
 }).then(function (response) {
     movieInfo = response
-    console.log(movieInfo.Title)
+    // console.log(movieInfo.Title)
     hintTimer();
 
 });
@@ -49,53 +49,79 @@ $("#next-clue").click(function () {
 function hintTimer() {
 
     let timeLeft = 45;
-    console.log(timeLeft);
 
     if (hintNum === 0) {
-        console.log("Genre: " + movieInfo.Genre);
+        $("#clue-type0").text("Genre:");
+        $("#clue-content0").text(movieInfo.Genre)
     }
 
     var timeInterval = setInterval(function () {
         // Show the time remaining in the upper right corner
-        timer.text(`Time Remaining: ${timeLeft}`);
+        timer.text("Time Remaining: " + timeLeft)
         //reduce score and timer by 1
-        score--
-        timeLeft--;
-        console.log(timeLeft)
+        
+        
 
-        if (timeLeft < 10 && timeLeft > 0) {
+        if (timeLeft < 11 && timeLeft > 0) {
             timer.attr("style", "color: red; font-weight: bold;")
         }
         // Game over if timer runs out or all questions are answered
         else if (timeLeft === 0) {
             // Stop the timer
             console.log("Answer: " + movieInfo.Title)
+            timer.text("Time Remaining: " + timeLeft)
             clearInterval(timeInterval);
 
         }
-
+        score--
+        timeLeft--;
 
     }, 1000);
 
 }
 
 function loadNextQuestion() {
-    // console.log("next-question")
     //adds 1 to hint num
     hintNum++
+    var cardContainer = $(".cards-container")
+    var cell = $("<div>");
+        cell.attr("class", "cell small-11 medium-6 large-4 my-cell");
+    var card = $("<div>");
+        card.attr("class", "card my-card");
+        card.attr("style", "width: 350px");
+    var clueType = $("<div>");
+        clueType.attr("class", "card-divider my-card-divider");
+        clueType.attr("id", "clue-type" + hintNum);
+    var clueContent = $("<div>");
+        clueContent.attr("class", "card-section my-card-section");
+        clueContent.attr("id", "clue-content" + hintNum);
+    var clueParagraph = $("<p>")
+        cardContainer.prepend(cell);
+        cell.append(card);
+        card.append(clueType);
+        card.append(clueContent);
+        clueContent.append(clueParagraph);
+    // console.log("next-question")
+    
     //checks to see wh
     switch (hintNum) {
-        case 1: console.log("Release Date: " + movieInfo.Released);
+        case 1: clueType.text("Release Date:");
+                clueParagraph.text(movieInfo.Released)
             break;
-        case 2: console.log("Rated: " + movieInfo.Rated);
+        case 2: clueType.text("Rated:");
+                clueParagraph.text(movieInfo.Rated)
             break;
-        case 3: console.log("Produced by: " + movieInfo.Production);
+        case 3: clueType.text("Produced By:");
+                clueParagraph.text(movieInfo.Production)
             break;
-        case 4: console.log("Directed by: " + movieInfo.Director);
+        case 4: clueType.text("Directed By:");
+                clueParagraph.text(movieInfo.Director)
             break;
-        case 5: console.log("Actors: " + movieInfo.Actors);
+        case 5: clueType.text("Actors:");
+                clueParagraph.text(movieInfo.Actors)
             break;
-        case 6: console.log("Plot: " + movieInfo.Plot);
+        case 6: clueType.text("Plot:");
+                clueParagraph.text(movieInfo.Plot)
             break;
     }
 }
