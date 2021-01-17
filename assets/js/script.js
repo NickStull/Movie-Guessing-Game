@@ -3,7 +3,7 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
+var omdbAPIKey = "20874aee"
 var giphyAPIKey = ""
 var score = 100
 var movieInfo = {}
@@ -152,8 +152,6 @@ function loadNextQuestion() {
     }
 }
 
-$("#next-clue").on("click", loadNextQuestion);
-
 // End card for running out of time.
 function gameOver() {
     var cardContainer = $("#cardContainer")
@@ -202,3 +200,9 @@ function gameOver() {
 
 }
 
+$("#guessButton").on("click", function() {
+    $("#guessInput").val("")
+    $("#guessInput").effect("shake");
+})
+
+$("#next-clue").on("click", loadNextQuestion);
