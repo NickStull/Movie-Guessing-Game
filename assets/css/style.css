@@ -4,7 +4,9 @@
 }
 
 body {
-    background-color: #121212;
+  background: url("https://wallpaperaccess.com/full/2000200.jpg") 50% no-repeat;
+  background-size: cover;
+    height: 75vh;
     color:white;
     text-align: center;
     justify-content: center;
@@ -254,7 +256,7 @@ footer {
  
 
 .my-card {
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0px;
 }
 
