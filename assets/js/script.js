@@ -4,10 +4,11 @@ var movieList = [
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 var container = $(".container");
 var omdbAPIKey = "trilogy"
-var giphyAPIKey = ""
+var giphyAPIKey = "ty0YVPz0Fq0MudSDkY5wN7tltSStxsxi"
 var score = 100
 var movieInfo = {}
 var hintNum = 0
+var clicks = 0
 
 
 var timer = $("#game-timer");
@@ -71,7 +72,7 @@ function hintTimer() {
             console.log("Answer: " + movieInfo.Title)
             timer.text("Time Remaining: " + timeLeft)
             clearInterval(timeInterval);
-
+            gameOver();
         }
         score--
         timeLeft--;
@@ -83,12 +84,12 @@ function hintTimer() {
 function loadNextQuestion() {
     //adds 1 to hint num
     hintNum++
-    var cardContainer = $(".cards-container")
+    var cardContainer = $(".grid-x")
     var cell = $("<div>");
-        cell.attr("class", "cell small-11 medium-6 large-4 my-cell");
+        cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
         card.attr("class", "card my-card");
-        card.attr("style", "width: 350px");
+        card.attr("style", "width: 100%");
     var clueType = $("<div>");
         clueType.attr("class", "card-divider my-card-divider");
         clueType.attr("id", "clue-type" + hintNum);
@@ -102,94 +103,102 @@ function loadNextQuestion() {
         card.append(clueContent);
         clueContent.append(clueParagraph);
     // console.log("next-question")
-    
-    //checks to see wh
+
+
     switch (hintNum) {
         case 1: clueType.text("Release Date:");
-                clueParagraph.text(movieInfo.Released)
+                clueParagraph.text(movieInfo.Released);
+                score - 2
             break;
         case 2: clueType.text("Rated:");
-                clueParagraph.text(movieInfo.Rated)
+                clueParagraph.text(movieInfo.Rated);
+                score - 2
             break;
         case 3: clueType.text("Produced By:");
-                clueParagraph.text(movieInfo.Production)
+                clueParagraph.text(movieInfo.Production);
+                score - 2
             break;
         case 4: clueType.text("Directed By:");
-                clueParagraph.text(movieInfo.Director)
+                clueParagraph.text(movieInfo.Director);
+                score - 2
             break;
         case 5: clueType.text("Actors:");
-                clueParagraph.text(movieInfo.Actors)
+                clueParagraph.text(movieInfo.Actors);
+                score - 2
             break;
         case 6: clueType.text("Plot:");
-                clueParagraph.text(movieInfo.Plot)
+                clueParagraph.text(movieInfo.Plot);
+                score - 2
             break;
+        case 7: clueType.text("No more clues!");
+                clueParagraph.text("🙃");
+            break;
+        case 8: clueType.text("What were you expecting?");
+                clueParagraph.text("No more!");
+            break;
+        case 9: clueType.text("bruh");
+                clueParagraph.text("😂");
+            break;
+        case 10: clueType.text("Here's a hint:");
+                 clueParagraph.text("It's a movie.");
+            break;
+        case 11: clueType.text("OK. Fine. New game:");
+                 clueParagraph.text("How many clicks can you get before the timer runs out?");
+            break;
+        default: clicks++
+                clueType.text("clicks:");
+                clueParagraph.text(clicks);
+             break;
     }
 }
 
 $("#next-clue").on("click", loadNextQuestion);
 
-// Function below saved for later
-// function gameOver() {
-//     var endingDiv = $("<div>");
-//     endingDiv.attr("id", "endingDiv");
-//     container.prepend(endingDiv);
-//     var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`;
+// End card for running out of time.
+function gameOver() {
+    var cardContainer = $(".grid-x")
+    var cell = $("<div>");
+        cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
+    var card = $("<div>");
+        card.attr("class", "card my-card");
+        card.attr("style", "width: 100%");
+    var endCard = $("<div>"); //clueType
+        endCard.attr("class", "card-divider my-card-divider");
+        endCard.attr("id", "endCard"); // "GAME OVER!"
+    var endContent = $("<div>"); //clueContent
+        endContent.attr("class", "card-section my-card-section");
+        endContent.attr("id", "endContent");
+    var endH1 = $("<H1>"); // The movie was: xxxx
+    var endH2 = $("<H2>"); // Your score: xxxx
+        cardContainer.prepend(cell);
+        cell.append(card);
+        card.append(endCard);
+        card.append(endContent);
+        endContent.append(endH1);
+        endContent.append(endH2);
+        endCard.text("Game Over!");
+        endH1.text("The movie was " + movieInfo.Title);
+        endH2.text("Better luck next time!");
 
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     })
-//         .then(function (response) {
-//             var results = response.data;
-//             console.log(response)
+    var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`;
 
-//             for (var i = 0; i < results.length; i++) {
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+            var results = response.data;
+            // console.log(response)
+            
 
-//                 var movieGif = $("<img>");
-//                 movieGif.attr("src", results[i].images.fixed_height.url);
+            for (var i = 0; i < results.length; i++) {
 
-//                 endingDiv.prepend(movieGif);
-//             }
-//         });
+                var movieGif = $("<img>");
+                movieGif.attr("src", results[i].images.fixed_height.url);
 
-//     var scoreDiv = $("<h1>");
-//     scoreDiv.attr("id", "finalScore")
-//     scoreDiv.text("GAME OVER! Your Score: " + score)
-//     container.prepend(scoreDiv);
+                endContent.append(movieGif);
+            }
+        });
 
-// }
+}
 
-// gameOver();
-
-
-//SAVING THIS BELOW IN CASE IT IS NEEDED.
-// at the moment I don't believe we will need this functionality any more.
-
-// console countdown
-        // console.log(timeLeft)
-        // If less than 10 seconds change text to red and weight to bold
-        // switch (timeLeft) {
-        //     case 45: console.log(movieInfo.Genre);
-        //         break;
-        //     case 40: console.log(movieInfo.Released);
-        //         break;
-        //     case 35: console.log(movieInfo.Rated);
-        //         break;
-        //     case 30: console.log(movieInfo.Production);
-        //         break;
-        //     case 25: console.log(movieInfo.Director);
-        //         break;
-        //     case 20: console.log(movieInfo.Actors);
-        //         break;
-        //     case 15: console.log(movieInfo.Plot);
-        //         break;
-        // }
-
-         // set all except #1 as hidden
-    // for (let i = 0; i < hintArr.length; i++) {
-
-    //     // Hide them all
-    //     $(`#hint${i + 1}`).attr("style", "visibility: hidden;");// Put this hints into the list
-    //     $(`#hint${i + 1}`).text(hintArr[i]);
-
-    // }
