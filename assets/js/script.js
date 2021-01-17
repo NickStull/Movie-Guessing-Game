@@ -201,8 +201,8 @@ function gameOver() {
 }
 
 $("#guessButton").on("click", function() {
-    $(".input-group-field").val("")
-    $(".input-group-field").effect("shake");
+    $("#guessInput").val("")
+    $("#guessInput").effect("shake");
 })
 
 $("#next-clue").on("click", loadNextQuestion);
