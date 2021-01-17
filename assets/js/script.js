@@ -2,7 +2,7 @@ var movieList = [
     "the shawshank redemption", "the godfather", "the dark knight", "schindler's list", "pulp fiction", "forrest gump", "inception", "goodfellas", "the green mile", "the silence of the lambs", "se7en", "seven samurai", "the matrix", "spirited away", "saving private ryan", "interstellar", "parasite", "the usual suspects", "the lion king", "the pianist", "back to the future", "american history x", "psycho", "gladiator", "casablanca", "rear window", "alien", "apocalypse now", "indiana jones and the raiders of the lost ark", "django unchained", "wall e", "the shining", "avengers: infinity war", "sunset blvd", "oldboy", "princess mononoke", "spider-man: into the spider-verse", "dr. strangelove or: how i learned to stop worrying and love the bomb", "your name.", "coco", "avengers: endgame", "american beauty", "braveheart", "toy story", "amadeus", "inglourious basterds", "good will hunting", "star wars: episode iv - a new hope", "it's a wonderful life", "the prestige", "the departed", "hamilton", "aliens", "das boot", "star wars: episode vi - return of the jedi", "reservoir dogs", "2001: a space odyssey", "requiem for a dream", "vertigo", "eternal sunshine of the spotless mind", "citizen kane", "full metal jacket", "singin' in the rain", "north by northwest", "snatch", "a clockwork orange", "1917", "scarface", "taxi driver", "lawrence of arabia", "toy story 3", "amelie", "the sting", "up", "indiana jones and the last crusade", "heat", "l.a. confidential", "die hard", "green book", "monty python and the holy grail", "yojimbo", "children of heaven", "unforgiven", "howl's moving castle", "a beautiful mind", "casino", "the great escape", "the wolf of wall street", "pan's labyrinth", "the secret in their eyes", "there will be blood", "lock, stock and two smoking barrels", "my neighbor totoro", "the treasure of the sierra madre", "dial m for murder", "three billboards outside ebbing, missouri", "shutter island", "no country for old men", "v for vendetta", "the sixth sense",
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
-var container = $(".container");
+// var container = $(".container");
 var omdbAPIKey = ""
 var giphyAPIKey = ""
 var score = 100
@@ -28,23 +28,23 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-// $("#next-clue").click(function () {
-//     var userGuess = movieInfo.Title;
-//     console.log(userGuess);
+$("#guessButton").click(function () {
+    var userGuess = movieInfo.Title;
+    console.log(userGuess);
 
-//     $.ajax({
-//         url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
-//         method: "GET"
-//     }).then(function (response2) {
-//         console.log(response2.Search[0].imdbID)
-//         console.log(movieInfo.imdbID)
-//         console.log(response2.Search[0].imdbID == movieInfo.imdbID);
-//         if (response2.Search[0].imdbID === movieInfo.imdbID) {
-//             //test script
-//             alert("you win")
-//         }
-//     });
-// });
+    $.ajax({
+        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+        method: "GET"
+    }).then(function (response2) {
+        console.log(response2.Search[0].imdbID)
+        console.log(movieInfo.imdbID)
+        console.log(response2.Search[0].imdbID == movieInfo.imdbID);
+        if (response2.Search[0].imdbID === movieInfo.imdbID) {
+            //test script
+            alert("you win")
+        }
+    });
+});
 
 
 function hintTimer() {
@@ -84,7 +84,7 @@ function hintTimer() {
 function loadNextQuestion() {
     //adds 1 to hint num
     hintNum++
-    var cardContainer = $(".grid-x")
+    var cardContainer = $("#cardContainer")
     var cell = $("<div>");
         cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
@@ -108,27 +108,27 @@ function loadNextQuestion() {
     switch (hintNum) {
         case 1: clueType.text("Release Date:");
                 clueParagraph.text(movieInfo.Released);
-                score - 2
+                score - 5
             break;
         case 2: clueType.text("Rated:");
                 clueParagraph.text(movieInfo.Rated);
-                score - 2
+                score - 5
             break;
         case 3: clueType.text("Produced By:");
                 clueParagraph.text(movieInfo.Production);
-                score - 2
+                score - 5
             break;
         case 4: clueType.text("Directed By:");
                 clueParagraph.text(movieInfo.Director);
-                score - 2
+                score - 5
             break;
         case 5: clueType.text("Actors:");
                 clueParagraph.text(movieInfo.Actors);
-                score - 2
+                score - 5
             break;
         case 6: clueType.text("Plot:");
                 clueParagraph.text(movieInfo.Plot);
-                score - 2
+                score - 5
             break;
         case 7: clueType.text("No more clues!");
                 clueParagraph.text("🙃");
@@ -156,7 +156,7 @@ $("#next-clue").on("click", loadNextQuestion);
 
 // End card for running out of time.
 function gameOver() {
-    var cardContainer = $(".grid-x")
+    var cardContainer = $("#cardContainer")
     var cell = $("<div>");
         cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
