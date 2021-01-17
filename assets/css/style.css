@@ -252,7 +252,8 @@ footer {
   }
 /* clue card css */
   .cards-container {
-    margin-top: 10px;
+    margin: 30px;
+    ;
   }
 
 .my-card {
@@ -267,7 +268,7 @@ footer {
   }
 
   .my-cell {
-    margin-right: 25px;
+    margin: 25px;
   }
   
   .my-card-section {
