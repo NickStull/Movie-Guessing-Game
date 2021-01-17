@@ -152,8 +152,6 @@ function loadNextQuestion() {
     }
 }
 
-$("#next-clue").on("click", loadNextQuestion);
-
 // End card for running out of time.
 function gameOver() {
     var cardContainer = $("#cardContainer")
@@ -202,3 +200,9 @@ function gameOver() {
 
 }
 
+$("#guessButton").on("click", function() {
+    $("#guessInput").val("")
+    $("#guessInput").effect("shake");
+})
+
+$("#next-clue").on("click", loadNextQuestion);
