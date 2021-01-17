@@ -28,23 +28,23 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-// $("#guessButton").click(function () {
-//     var userGuess = movieInfo.Title;
-//     console.log(userGuess);
+$("#guessButton").click(function () {
+    var userGuess = movieInfo.Title;
+    console.log(userGuess);
 
-//     $.ajax({
-//         url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
-//         method: "GET"
-//     }).then(function (response2) {
-//         console.log(response2.Search[0].imdbID)
-//         console.log(movieInfo.imdbID)
-//         console.log(response2.Search[0].imdbID == movieInfo.imdbID);
-//         if (response2.Search[0].imdbID === movieInfo.imdbID) {
-//             //test script
-//             alert("you win")
-//         }
-//     });
-// });
+    $.ajax({
+        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+        method: "GET"
+    }).then(function (response2) {
+        console.log(response2.Search[0].imdbID)
+        console.log(movieInfo.imdbID)
+        console.log(response2.Search[0].imdbID == movieInfo.imdbID);
+        if (response2.Search[0].imdbID === movieInfo.imdbID) {
+            //test script
+            alert("you win")
+        }
+    });
+});
 
 
 function hintTimer() {
