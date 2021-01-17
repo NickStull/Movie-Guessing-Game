@@ -42,6 +42,10 @@ $("#guessButton").click(function () {
             //test script
             alert("you win")
         }
+        else {
+            $("#guessInput").val("")
+            $("#guessInput").effect("shake");
+        }
     });
 });
 
@@ -198,10 +202,5 @@ function gameOver() {
         });
 
 }
-
-$("#guessButton").on("click", function () {
-    $("#guessInput").val("")
-    $("#guessInput").effect("shake");
-})
 
 $("#next-clue").on("click", loadNextQuestion);
