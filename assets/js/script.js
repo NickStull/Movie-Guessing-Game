@@ -16,7 +16,6 @@ var timer = $("#game-timer");
 $.ajax({
     url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
     method: "GET",
-    async: false,
 }).then(function (response) {
     movieInfo = response
     // console.log(movieInfo.Title)
@@ -28,8 +27,9 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-$("#guessButton").click(function () {
-    var userGuess = movieInfo.Title;
+$("#guessButtonI").click(function (event) {
+
+    var userGuess = $("#guessInput").val().trim();
     console.log(userGuess);
 
     $.ajax({
@@ -42,6 +42,10 @@ $("#guessButton").click(function () {
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             //test script
             alert("you win")
+        }
+        else {
+            $("#guessInput").val("")
+            $("#guessInput").effect("shake");
         }
     });
 });
@@ -60,8 +64,8 @@ function hintTimer() {
         // Show the time remaining in the upper right corner
         timer.text("Time Remaining: " + timeLeft)
         //reduce score and timer by 1
-        
-        
+
+
 
         if (timeLeft < 11 && timeLeft > 0) {
             timer.attr("style", "color: red; font-weight: bold;")
@@ -86,69 +90,69 @@ function loadNextQuestion() {
     hintNum++
     var cardContainer = $("#cardContainer")
     var cell = $("<div>");
-        cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
+    cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
-        card.attr("class", "card my-card");
-        card.attr("style", "width: 100%");
+    card.attr("class", "card my-card");
+    card.attr("style", "width: 100%");
     var clueType = $("<div>");
-        clueType.attr("class", "card-divider my-card-divider");
-        clueType.attr("id", "clue-type" + hintNum);
+    clueType.attr("class", "card-divider my-card-divider");
+    clueType.attr("id", "clue-type" + hintNum);
     var clueContent = $("<div>");
-        clueContent.attr("class", "card-section my-card-section");
-        clueContent.attr("id", "clue-content" + hintNum);
+    clueContent.attr("class", "card-section my-card-section");
+    clueContent.attr("id", "clue-content" + hintNum);
     var clueParagraph = $("<p>")
-        cardContainer.prepend(cell);
-        cell.append(card);
-        card.append(clueType);
-        card.append(clueContent);
-        clueContent.append(clueParagraph);
+    cardContainer.prepend(cell);
+    cell.append(card);
+    card.append(clueType);
+    card.append(clueContent);
+    clueContent.append(clueParagraph);
     // console.log("next-question")
 
 
     switch (hintNum) {
         case 1: clueType.text("Release Date:");
-                clueParagraph.text(movieInfo.Released);
-                score - 5
+            clueParagraph.text(movieInfo.Released);
+            score - 5
             break;
         case 2: clueType.text("Rated:");
-                clueParagraph.text(movieInfo.Rated);
-                score - 5
+            clueParagraph.text(movieInfo.Rated);
+            score - 5
             break;
         case 3: clueType.text("Produced By:");
-                clueParagraph.text(movieInfo.Production);
-                score - 5
+            clueParagraph.text(movieInfo.Production);
+            score - 5
             break;
         case 4: clueType.text("Directed By:");
-                clueParagraph.text(movieInfo.Director);
-                score - 5
+            clueParagraph.text(movieInfo.Director);
+            score - 5
             break;
         case 5: clueType.text("Actors:");
-                clueParagraph.text(movieInfo.Actors);
-                score - 5
+            clueParagraph.text(movieInfo.Actors);
+            score - 5
             break;
         case 6: clueType.text("Plot:");
-                clueParagraph.text(movieInfo.Plot);
-                score - 5
+            clueParagraph.text(movieInfo.Plot);
+            score - 5
             break;
         case 7: clueType.text("No more clues!");
-                clueParagraph.text("🙃");
+            clueParagraph.text("🙃");
             break;
         case 8: clueType.text("What were you expecting?");
-                clueParagraph.text("No more!");
+            clueParagraph.text("No more!");
             break;
         case 9: clueType.text("bruh");
-                clueParagraph.text("😂");
+            clueParagraph.text("😂");
             break;
         case 10: clueType.text("Here's a hint:");
-                 clueParagraph.text("It's a movie.");
+            clueParagraph.text("It's a movie.");
             break;
         case 11: clueType.text("OK. Fine. New game:");
-                 clueParagraph.text("How many clicks can you get before the timer runs out?");
+            clueParagraph.text("How many clicks can you get before the timer runs out?");
             break;
         default: clicks++
-                clueType.text("clicks:");
-                clueParagraph.text(clicks);
-             break;
+            clueType.text("clicks:");
+            clueParagraph.text(clicks);
+            break;
     }
 }
 
@@ -156,27 +160,27 @@ function loadNextQuestion() {
 function gameOver() {
     var cardContainer = $("#cardContainer")
     var cell = $("<div>");
-        cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
+    cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
-        card.attr("class", "card my-card");
-        card.attr("style", "width: 100%");
+    card.attr("class", "card my-card");
+    card.attr("style", "width: 100%");
     var endCard = $("<div>"); //clueType
-        endCard.attr("class", "card-divider my-card-divider");
-        endCard.attr("id", "endCard"); // "GAME OVER!"
+    endCard.attr("class", "card-divider my-card-divider");
+    endCard.attr("id", "endCard"); // "GAME OVER!"
     var endContent = $("<div>"); //clueContent
-        endContent.attr("class", "card-section my-card-section");
-        endContent.attr("id", "endContent");
+    endContent.attr("class", "card-section my-card-section");
+    endContent.attr("id", "endContent");
     var endH1 = $("<H1>"); // The movie was: xxxx
     var endH2 = $("<H2>"); // Your score: xxxx
-        cardContainer.prepend(cell);
-        cell.append(card);
-        card.append(endCard);
-        card.append(endContent);
-        endContent.append(endH1);
-        endContent.append(endH2);
-        endCard.text("Game Over!");
-        endH1.text("The movie was " + movieInfo.Title);
-        endH2.text("Better luck next time!");
+    cardContainer.prepend(cell);
+    cell.append(card);
+    card.append(endCard);
+    card.append(endContent);
+    endContent.append(endH1);
+    endContent.append(endH2);
+    endCard.text("Game Over!");
+    endH1.text("The movie was " + movieInfo.Title);
+    endH2.text("Better luck next time!");
 
     var queryURL = `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`;
 
@@ -187,7 +191,7 @@ function gameOver() {
         .then(function (response) {
             var results = response.data;
             // console.log(response)
-            
+
 
             for (var i = 0; i < results.length; i++) {
 
@@ -199,10 +203,5 @@ function gameOver() {
         });
 
 }
-
-$("#guessButton").on("click", function() {
-    $("#guessInput").val("")
-    $("#guessInput").effect("shake");
-})
 
 $("#next-clue").on("click", loadNextQuestion);
