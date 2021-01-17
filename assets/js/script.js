@@ -3,7 +3,7 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = "20874aee"
+var omdbAPIKey = ""
 var giphyAPIKey = ""
 var score = 100
 var movieInfo = {}
@@ -27,7 +27,8 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-$("#guessButton").click(function () {
+$("#guessButtonI").click(function (event) {
+
     var userGuess = $("#guessInput").val().trim();
     console.log(userGuess);
 
