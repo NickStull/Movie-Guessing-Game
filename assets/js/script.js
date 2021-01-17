@@ -16,7 +16,6 @@ var timer = $("#game-timer");
 $.ajax({
     url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
     method: "GET",
-    async: false,
 }).then(function (response) {
     movieInfo = response
     // console.log(movieInfo.Title)
@@ -200,7 +199,7 @@ function gameOver() {
 
 }
 
-$("#guessButton").on("click", function() {
+$("#guessButton").on("click", function () {
     $("#guessInput").val("")
     $("#guessInput").effect("shake");
 })
