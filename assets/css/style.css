@@ -111,10 +111,17 @@ footer {
 }
 
 /* Walk of Fame */
+.title {
+    font-size: 50px;
+}
+.grid-style {
+    justify-content: center;
+
+}
 
 .star-card {
-    width: 100%;
-    border: 2px solid green;
+    width: 300px;
+    border: 2px solid silver;
     font-family: 'Overpass', sans-serif;
 }
 
@@ -379,7 +386,6 @@ footer {
   100% {
     opacity:0.95;
 }}
-
 
   
   
