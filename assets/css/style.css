@@ -4,7 +4,10 @@
 }
 
 body {
-    background-color: #121212;
+  background: url("https://wallpaperaccess.com/full/2000200.jpg") 50% no-repeat;
+  background-size: cover;
+    height: 75vh;
+    background-color: #212121;
     color:white;
     text-align: center;
     justify-content: center;
@@ -263,7 +266,7 @@ footer {
  
 
 .my-card {
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0px;
 }
 
@@ -275,6 +278,7 @@ footer {
 
   .my-cell {
     margin: 15px 15px 0px 15px;
+    opacity: 0.95;
   }
   
   .my-card-section {
@@ -329,6 +333,59 @@ footer {
   margin: auto;
   width: 50%;
 } */
+
+/* card fade in classes */
+
+.fade-in {
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:0.95;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:0.95;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:0.95;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:0.95;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:0.95;
+}
 
 
   
