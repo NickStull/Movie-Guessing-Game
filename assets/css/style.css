@@ -251,10 +251,7 @@ footer {
    top: 0;
   }
 /* clue card css */
-  .cards-container {
-    margin: 30px;
-    ;
-  }
+ 
 
 .my-card {
   border-radius: 30px;
@@ -268,7 +265,7 @@ footer {
   }
 
   .my-cell {
-    margin: 25px;
+    margin: 15px 15px 0px 15px;
   }
   
   .my-card-section {
@@ -276,16 +273,6 @@ footer {
     font-weight: bold;
   }
 
-  /* button css */
-.my-submit {
-  background-color: #b3b3b3;
-  color: #212121;
-  font-weight: bold;
-  margin-right: 15px;
-  margin-bottom: 10px;
-  border: #121212;
-  border-radius: 15px;
-}
 
 #next-clue {
   background-color: #1db954;
@@ -301,6 +288,38 @@ footer {
 #game-timer {
   font-family: Orbitron;
 }
+
+/* movie input form  */
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+  background-color: #1db954;
+  color: #0a0a0a; 
+  font-weight: bold;
+}
+
+.centered {
+  margin: 0;
+  bottom: 50%;
+  top: 50%;
+}
+
+.my-button {
+  margin-top: 8px;
+}
+
+/* centering nav bar stuff */
+
+/* .navy-center {
+  margin: auto;
+  width: 50%;
+} */
 
 
   
