@@ -3,8 +3,8 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "trilogy"
+var giphyAPIKey = "ty0YVPz0Fq0MudSDkY5wN7tltSStxsxi"
 var score = 100
 var movieInfo = {}
 var hintNum = 0
@@ -28,23 +28,23 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-$("#guessButton").click(function () {
-    var userGuess = movieInfo.Title;
-    console.log(userGuess);
+// $("#guessButton").click(function () {
+//     var userGuess = movieInfo.Title;
+//     console.log(userGuess);
 
-    $.ajax({
-        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
-        method: "GET"
-    }).then(function (response2) {
-        console.log(response2.Search[0].imdbID)
-        console.log(movieInfo.imdbID)
-        console.log(response2.Search[0].imdbID == movieInfo.imdbID);
-        if (response2.Search[0].imdbID === movieInfo.imdbID) {
-            //test script
-            alert("you win")
-        }
-    });
-});
+//     $.ajax({
+//         url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+//         method: "GET"
+//     }).then(function (response2) {
+//         console.log(response2.Search[0].imdbID)
+//         console.log(movieInfo.imdbID)
+//         console.log(response2.Search[0].imdbID == movieInfo.imdbID);
+//         if (response2.Search[0].imdbID === movieInfo.imdbID) {
+//             //test script
+//             alert("you win")
+//         }
+//     });
+// });
 
 
 function hintTimer() {
@@ -152,8 +152,6 @@ function loadNextQuestion() {
     }
 }
 
-$("#next-clue").on("click", loadNextQuestion);
-
 // End card for running out of time.
 function gameOver() {
     var cardContainer = $("#cardContainer")
@@ -202,3 +200,9 @@ function gameOver() {
 
 }
 
+$("#guessButton").on("click", function() {
+    $(".input-group-field").val("")
+    $(".input-group-field").effect("shake");
+})
+
+$("#next-clue").on("click", loadNextQuestion);
