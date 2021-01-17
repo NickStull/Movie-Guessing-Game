@@ -54,11 +54,9 @@ li {
 #contributors {
     display: flex;
     color: #fefefe;
-    /* flex-shrink: 0; */
 }
 #container {
     position: relative;
-    /* min-height: 100vh; */
 }
 
 footer {
@@ -67,12 +65,31 @@ footer {
     width: 100%;
 }
 
+/* Pictures */
+.thumbnail {
+    display: flex;
+    float: left;
+    max-width: 75px;
+    min-width: 75px;
+    border-radius: 5px 20px 5px;
+    text-align: left;
+    margin-right: 10px;
+}
+/* Names */
+.name-link {
+    display: block;
+    margin-top: 15px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #fefefe;
+    text-align: left;
+}
+/* For responsiveness */
 @media screen and (max-height: 480px) {
     .hero-section {
         height: 70vh;
     }
     .hero-section .hero-section-text {
-        /* margin-top: 22.5em; */
         margin-top: 35vh;
     }
     #start-button {
@@ -90,27 +107,12 @@ footer {
     }
 }
 
+/* Walk of Fame */
 
-/* Pictures */
-.thumbnail {
-    /* margin-top: 10px; */
-    display: flex;
-    float: left;
-    max-width: 75px;
-    min-width: 75px;
-    border-radius: 5px 20px 5px;
-    text-align: left;
-    margin-right: 10px;
-}
-/* Names */
-.name-link {
-    display: block;
-    margin-top: 15px;
-    padding-left: 10px;
-    font-size: 16px;
-    color: #fefefe;
-    text-align: left;
-    /* justify-content:left; */
+.star-card {
+    width: 100%;
+    border: 2px solid green;
+    font-family: 'Overpass', sans-serif;
 }
 
 /* nav bar css */
