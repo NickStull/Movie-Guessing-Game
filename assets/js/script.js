@@ -38,7 +38,6 @@ $("#guessInput").keypress(function (event) {
 
 function guessTrigger() {
 
-
     var userGuess = $("#guessInput").val().trim();
 
     $.ajax({
@@ -51,7 +50,6 @@ function guessTrigger() {
             $("#guessInput").val("")
             $("#guessInput").effect("shake");
         }
-
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             correctGuess = true;
