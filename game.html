@@ -16,16 +16,14 @@
 </head>
 
 <body id="game-body">
-  <nav class="top-bar topbar-responsive sticky">
-    <div class="top-bar-title">
-      <span data-responsive-toggle="topbar-responsive" data-hide-for="small">
-        <button class="menu-icon" type="button" data-toggle></button>
-      </span>
-      <a class="topbar-responsive-logo" href="#"><strong>moviQ🎬</strong></a>
-    </div>
+  <nav class="top-bar topbar-responsive sticky controller-box">
+    
     <div id="topbar-responsive" class="topbar-responsive-links">
-      <div class="top-bar-center navy-center">
-        <ul class="menu simple vertical medium-horizontal">
+      <div class="top-bar-center">
+        <ul class="menu simple vertical medium-vertical">
+          <li><div class="top-bar-title">
+            <a class="topbar-responsive-logo" href="#"><h1>moviQ🎬</h1></a>  
+          </div></li>
           <li>
             <div class="input-group input-group-rounded centered">
               <input id="guessInput" class="input-group-field" type="search">
@@ -40,10 +38,10 @@
       </div>
     </div>
   </nav> 
-  <div id="game-container">       
-      <div id="cardContainer" class="grid-x grid-padding-x align-justified">
+  <div id="game-container">     
+      <div id="cardContainer" class="grid-x grid-padding-x">
   
-        <div class="cell small-10 medium-8 large-6 my-cell fade-in">
+        <div class="cell small-10 medium-8 large-6 my-cell">
           <div class="card my-card" style="width: 100%">
             <div id="clue-type0" class="card-divider my-card-divider">
             </div>
@@ -52,7 +50,29 @@
               </p>
             </div>
           </div>
-        </div> 
+        </div>
+        <div class="cell small-10 medium-8 large-6 my-cell invisible">
+          <div class="card my-card" style="width: 100%">
+            <div id="clue-type0" class="card-divider my-card-divider">
+            </div>
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>this is just a way to fix the margin problem. Start with two 
+                invisible cards taking up some space. Still responsive margin, 
+                but not taking up the whole page.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cell small-10 medium-8 large-7 my-cell invisible">
+          <div class="card my-card" style="width: 100%">
+            <div id="clue-type0" class="card-divider my-card-divider">
+            </div>
+            <div id="clue-content0" class="card-section my-card-section">
+              <p>
+              </p>
+            </div>
+          </div>
+        </div>
         
       </div>
     </div>
