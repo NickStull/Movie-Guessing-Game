@@ -9,6 +9,7 @@ $( document ).ready(function() {
     topScores = JSON.parse(localStorage.getItem("savedScores"));
     // Grab the current user score from local storage
     userScore = JSON.parse(localStorage.getItem("movieIQScore"));
+    userScore = 17;
     // Reset local storage to zero
     localStorage.setItem("movieIQScore", JSON.stringify(0));
     
