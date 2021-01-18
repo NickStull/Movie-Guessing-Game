@@ -17,7 +17,7 @@ $( document ).ready(function() {
         renderStars();
     }
     // If there is no persistent data, the user is in the top ten
-    else { 
+    else if (score > 0) { 
         console.log("No top scores");
         $("#topScoreModal").foundation("open"); 
     }
