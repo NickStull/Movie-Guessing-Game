@@ -4,13 +4,56 @@ let storedScore = 17;
 let userScore = 18;
 
 if (userScore > storedScore) {
-    $("#exampleModal1").foundation("open");
+    $("#topScoreModal").foundation("open");
+
 }
 // let h1Tag = $("<h1>");
 // h1Tag.text("Awesome. I have it.");
 // $("#exampleModal1").append(h1Tag);
 
-let highscores = ["Tim Martin: 30", "Jimi Simon: 30", "Derek Bardini: 30", "Nick Stull: 30", "Aubrey Plaza: 24", "Morgan Freeman: 22", "Olivia Munn: 21", "Jim Carrey: 20", "Ryan Reynolds: 20", "Will Smith: 18"];
+let highscores = [
+    {
+        name: "Tim Martin",
+        score: 30
+    },
+    {
+        name: "Jimi Simon",
+        score: 30
+    },
+    {
+        name: "Derek Bardini",
+        score: 30
+    },
+    {
+        name: "Nick Stull",
+        score: 30
+    },
+    {
+        name: "Aubrey Plaza",
+        score: 28
+    },
+    {
+        name: "Morgan Freeman",
+        score: 22
+    },
+    {
+        name: "Olivia Munn",
+        score: 21
+    },
+    {
+        name: "Jim Carrey",
+        score: 20
+    },
+    {
+        name: "Ryan Reynolds",
+        score: 20
+    },
+    {
+        name: "Will Smith",
+        score: 18
+    }
+];
+
 let myGrid = $("#my-grid");
 
 for (let i = 0; i < highscores.length; i++) {
@@ -27,7 +70,7 @@ for (let i = 0; i < highscores.length; i++) {
     
     let starCardText = $("<div>");
     starCardText.addClass("star-card-text");
-    starCardText.text(highscores[i]);
+    starCardText.text(`${highscores[i].name}: ${highscores[i].score}`);
     
     myGrid.append(cardContainer);
     cardContainer.append(starCard);
@@ -35,5 +78,8 @@ for (let i = 0; i < highscores.length; i++) {
     cardContainer.append(starCardText);
 }
 
-
+// Clear the textbox when clicked
+$("#userName").focus(function() { 
+    $(this).val(""); 
+} );
 

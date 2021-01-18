@@ -116,6 +116,7 @@ footer {
 /* Walk of Fame */
 .title {
     font-size: 50px;
+    text-align: center;
 }
 .grid-style {
     justify-content: center;
