@@ -3,13 +3,13 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = "20874aee"
-var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
+var omdbAPIKey = ""
+var giphyAPIKey = ""
 var score = 100
 var movieInfo = {}
 var hintNum = 0
 var clicks = 0
-correctGuess = false
+var correctGuess = false
 
 
 var timer = $("#game-timer");
@@ -92,6 +92,7 @@ function hintTimer() {
         if (timeLeft < 11 && timeLeft > 0) {
             timer.attr("style", "color: red; font-weight: bold;")
         }
+        
         if (correctGuess === true) {
             clearInterval(timeInterval);
         }
@@ -107,7 +108,6 @@ function hintTimer() {
         timeLeft--;
 
     }, 1000);
-    return timeInterval;
 }
 
 
