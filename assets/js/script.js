@@ -3,13 +3,13 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "20874aee"
+var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
 var score = 100
 var movieInfo = {}
 var hintNum = 0
 var clicks = 0
-var correctGuess = false
+var correctGuess = false;
 
 
 var timer = $("#game-timer");
@@ -28,7 +28,9 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-$("#guessButton").click(function () {
+
+
+$("#guessButton").click(function (event) {
 
     var userGuess = $("#guessInput").val().trim();
 
@@ -63,6 +65,9 @@ $("#guessButton").click(function () {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
+            $("guessButton").off(event);
+
+
 
         }
         else {
