@@ -66,6 +66,7 @@ $("#guessButton").click(function (event) {
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
             $("guessButton").off(event);
+            $("#next-clue").data("state", "inactive");
 
 
 
@@ -119,7 +120,8 @@ function hintTimer() {
 
 function loadNextHint() {
     //adds 1 to hint num
-    if($("#next-clue").attr("data-state") != "inactive") {
+    console.log($("#next-clue").data("state"))
+    if($("#next-clue").data("state") != "inactive") {
         hintNum++
         var cardContainer = $("#cardContainer")
         var cell = $("<div>");
@@ -192,8 +194,8 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
-    $("#next-clue").data("state", "inactive")
-    var cardContainer = $("#cardContainer")
+    $("#next-clue").data("state", "inactive");
+    var cardContainer = $("#cardContainer");
     var cell = $("<div>");
     cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
     var card = $("<div>");
@@ -252,6 +254,8 @@ function gameOver() {
                 endContent.append(movieGif);
             }
         });
+    
+    console.log($("#next-clue").data("state"))
 
 }
 
