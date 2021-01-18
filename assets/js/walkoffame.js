@@ -1,88 +1,90 @@
 $(document).foundation();
 
-let highscores = [
-    {
-        name: "Tim Martin",
-        score: 30
-    },
-    {
-        name: "Jimi Simon",
-        score: 30
-    },
-    {
-        name: "Derek Bardini",
-        score: 30
-    },
-    {
-        name: "Nick Stull",
-        score: 30
-    },
-    {
-        name: "Aubrey Plaza",
-        score: 28
-    },
-    {
-        name: "Morgan Freeman",
-        score: 22
-    },
-    {
-        name: "Olivia Munn",
-        score: 21
-    },
-    {
-        name: "Jim Carrey",
-        score: 20
-    },
-    {
-        name: "Ryan Reynolds",
-        score: 20
-    },
-    {
-        name: "Will Smith",
-        score: 18
+let topScores = [];
+
+// Initial load of document
+$( document ).ready(function() {
+    // Grab the current array from local storage
+    topScores = JSON.parse(localStorage.getItem("savedScores"));
+    
+    // If there is persistent data, compare the last entry to the users score
+    if (topScores) { 
+        if (score > topScores[topScores.length - 1].score) {
+            console.log("Top scores");
+            //Pop modal
+            $("#topScoreModal").foundation("open");
+        }
+        renderStars();
     }
-];
+    // If there is no persistent data, the user is in the top ten
+    else { 
+        console.log("No top scores");
+        $("#topScoreModal").foundation("open"); 
+    }
+        
+}); 
 
-let storedScore = 17;
-let userScore = 18;
+function renderStars() {
+    let myGrid = $("#my-grid");
+    myGrid.html("");
 
-if (userScore > storedScore) {
-    $("#topScoreModal").foundation("open");
-
+    for (let i = 0; i < topScores.length; i++) {
+        let cardContainer = $("<div>");
+        cardContainer.addClass("card-container");
+        
+        let starCard = $("<div>");
+        starCard.addClass("star-card");
+        
+        let starImage = $("<img>");
+        starImage.attr("src", "./assets/images/walkofFameStar.jpg");
+        starImage.attr("alt", "Walk of Fame star");
+        console.log(starImage);
+        
+        let starCardText = $("<div>");
+        starCardText.addClass("star-card-text");
+        starCardText.text(`${topScores[i].name}: ${topScores[i].score}`);
+        
+        myGrid.append(cardContainer);
+        cardContainer.append(starCard);
+        starCard.append(starImage);
+        cardContainer.append(starCardText);
+    }
 }
 
-// let h1Tag = $("<h1>");
-// h1Tag.text("Awesome. I have it.");
-// $("#exampleModal1").append(h1Tag);
+// Search button function
+$("#enter-button").on("click", function(event) {
+    event.preventDefault();
 
+    // Get user name
+    let userName = $("#user-name").val().trim();
+    console.log(userName);
 
+    let highscore = {
+        name: userName,
+        score: score
+    };
 
-let myGrid = $("#my-grid");
-
-for (let i = 0; i < highscores.length; i++) {
-    let cardContainer = $("<div>");
-    cardContainer.addClass("card-container");
+    if (topScores) {
+        if (topScores.length === 10) {
+            topScores.pop();
+        }
+        topScores.push(highscore);
+        topScores.sort(function(a, b) {
+            return b.score - a.score;
+        });
+    }
+    else {
+        topScores = [highscore];
+    }
+    // Store the array locally
+    localStorage.setItem("savedScores", JSON.stringify(topScores));
+    renderStars();
     
-    let starCard = $("<div>");
-    starCard.addClass("star-card");
-    
-    let starImage = $("<img>");
-    starImage.attr("src", "./assets/images/walkofFameStar.jpg");
-    starImage.attr("alt", "Walk of Fame star");
-    console.log(starImage);
-    
-    let starCardText = $("<div>");
-    starCardText.addClass("star-card-text");
-    starCardText.text(`${highscores[i].name}: ${highscores[i].score}`);
-    
-    myGrid.append(cardContainer);
-    cardContainer.append(starCard);
-    starCard.append(starImage);
-    cardContainer.append(starCardText);
-}
+});
 
 // Clear the textbox when clicked
-$("#userName").focus(function() { 
+$("#user-name").focus(function() { 
     $(this).val(""); 
 } );
 
+renderStars();
