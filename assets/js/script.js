@@ -3,8 +3,8 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "20874aee"
+var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
 var score = 100
 var movieInfo = {}
 var hintNum = 0
@@ -66,6 +66,21 @@ $("#guessButton").click(function (event) {
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
             $("guessButton").off(event);
+
+            $.ajax({
+                url: `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`,
+                method: "GET"
+            }).then(function (memes) {
+                var results = memes.data;
+
+                for (var i = 0; i < results.length; i++) {
+
+                    var movieGif = $("<img>");
+                    movieGif.attr("src", results[i].images.fixed_height.url);
+
+                    endContent.append(movieGif);
+                }
+            });
 
 
 
