@@ -1,16 +1,5 @@
 $(document).foundation();
 
-let storedScore = 17;
-let userScore = 18;
-
-if (userScore > storedScore) {
-    $("#topScoreModal").foundation("open");
-
-}
-// let h1Tag = $("<h1>");
-// h1Tag.text("Awesome. I have it.");
-// $("#exampleModal1").append(h1Tag);
-
 let highscores = [
     {
         name: "Tim Martin",
@@ -53,6 +42,20 @@ let highscores = [
         score: 18
     }
 ];
+
+let storedScore = 17;
+let userScore = 18;
+
+if (userScore > storedScore) {
+    $("#topScoreModal").foundation("open");
+
+}
+
+// let h1Tag = $("<h1>");
+// h1Tag.text("Awesome. I have it.");
+// $("#exampleModal1").append(h1Tag);
+
+
 
 let myGrid = $("#my-grid");
 
