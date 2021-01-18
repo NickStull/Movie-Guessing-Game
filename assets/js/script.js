@@ -9,6 +9,7 @@ var score = 100
 var movieInfo = {}
 var hintNum = 0
 var clicks = 0
+correctGuess = false
 
 
 var timer = $("#game-timer");
@@ -27,7 +28,7 @@ $.ajax({
 //whole thing needs to run on click
 //this need to be directed to the submit text field
 
-$("#guessButton").click(function (event) {
+$("#guessButton").click(function () {
 
     var userGuess = $("#guessInput").val().trim();
 
@@ -37,8 +38,33 @@ $("#guessButton").click(function (event) {
     }).then(function (response2) {
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
-            //test script
-            alert("you win")
+            correctGuess = true;
+
+            var cardContainer = $("#cardContainer")
+            var cell = $("<div>");
+            cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
+            var card = $("<div>");
+            card.attr("class", "card my-card");
+            card.attr("style", "width: 100%");
+            var endCard = $("<div>"); //clueType
+            endCard.attr("class", "card-divider my-card-divider");
+            endCard.attr("id", "endCard"); // "GAME OVER!"
+            endCard.attr("color", "white");
+            var endContent = $("<div>"); //clueContent
+            endContent.attr("class", "card-section my-card-section");
+            endContent.attr("id", "endContent");
+            var endH1 = $("<H1>"); // The movie was: xxxx
+            var endH2 = $("<H2>"); // Your score: xxxx
+            cardContainer.prepend(cell);
+            cell.append(card);
+            card.append(endCard);
+            card.append(endContent);
+            endContent.append(endH1);
+            endContent.append(endH2);
+            endCard.text("You Win");
+            endH1.text("That's right! the movie is " + movieInfo.Title);
+            endH2.text("You did it!");
+
         }
         else {
             $("#guessInput").val("")
@@ -67,6 +93,9 @@ function hintTimer() {
         if (timeLeft < 11 && timeLeft > 0) {
             timer.attr("style", "color: red; font-weight: bold;")
         }
+        if (correctGuess === true) {
+            clearInterval(timeInterval);
+        }
         // Game over if timer runs out or all questions are answered
         else if (timeLeft === 0) {
             // Stop the timer
@@ -79,8 +108,10 @@ function hintTimer() {
         timeLeft--;
 
     }, 1000);
-
+    return timeInterval;
 }
+
+
 
 function loadNextQuestion() {
     //adds 1 to hint num
