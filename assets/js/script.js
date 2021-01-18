@@ -3,8 +3,8 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "trilogy"
+var giphyAPIKey = "ty0YVPz0Fq0MudSDkY5wN7tltSStxsxi"
 var score = 100
 var movieInfo = {}
 var hintNum = 0
@@ -117,79 +117,82 @@ function hintTimer() {
 
 
 
-function loadNextQuestion() {
+function loadNextHint() {
     //adds 1 to hint num
-    hintNum++
-    var cardContainer = $("#cardContainer")
-    var cell = $("<div>");
-    cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
-    var card = $("<div>");
-    card.attr("class", "card my-card");
-    card.attr("style", "width: 100%");
-    var clueType = $("<div>");
-    clueType.attr("class", "card-divider my-card-divider");
-    clueType.attr("id", "clue-type" + hintNum);
-    var clueContent = $("<div>");
-    clueContent.attr("class", "card-section my-card-section");
-    clueContent.attr("id", "clue-content" + hintNum);
-    var clueParagraph = $("<p>")
-    cardContainer.prepend(cell);
-    cell.append(card);
-    card.append(clueType);
-    card.append(clueContent);
-    clueContent.append(clueParagraph);
-    // console.log("next-question")
+    if($("#next-clue").attr("data-state") != "inactive") {
+        hintNum++
+        var cardContainer = $("#cardContainer")
+        var cell = $("<div>");
+        cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
+        var card = $("<div>");
+        card.attr("class", "card my-card");
+        card.attr("style", "width: 100%");
+        var clueType = $("<div>");
+        clueType.attr("class", "card-divider my-card-divider");
+        clueType.attr("id", "clue-type" + hintNum);
+        var clueContent = $("<div>");
+        clueContent.attr("class", "card-section my-card-section");
+        clueContent.attr("id", "clue-content" + hintNum);
+        var clueParagraph = $("<p>")
+        cardContainer.prepend(cell);
+        cell.append(card);
+        card.append(clueType);
+        card.append(clueContent);
+        clueContent.append(clueParagraph);
+        // console.log("next-question")
 
 
-    switch (hintNum) {
-        case 1: clueType.text("Release Date:");
-            clueParagraph.text(movieInfo.Released);
-            score - 5
-            break;
-        case 2: clueType.text("Rated:");
-            clueParagraph.text(movieInfo.Rated);
-            score - 5
-            break;
-        case 3: clueType.text("Produced By:");
-            clueParagraph.text(movieInfo.Production);
-            score - 5
-            break;
-        case 4: clueType.text("Directed By:");
-            clueParagraph.text(movieInfo.Director);
-            score - 5
-            break;
-        case 5: clueType.text("Actors:");
-            clueParagraph.text(movieInfo.Actors);
-            score - 5
-            break;
-        case 6: clueType.text("Plot:");
-            clueParagraph.text(movieInfo.Plot);
-            score - 5
-            break;
-        case 7: clueType.text("No more clues!");
-            clueParagraph.text("🙃");
-            break;
-        case 8: clueType.text("What were you expecting?");
-            clueParagraph.text("No more!");
-            break;
-        case 9: clueType.text("bruh");
-            clueParagraph.text("😂");
-            break;
-        case 10: clueType.text("Here's a hint:");
-            clueParagraph.text("It's a movie.");
-            break;
-        case 11: clueType.text("OK. Fine. New game:");
-            clueParagraph.text("How many clicks can you get before the timer runs out?");
-            break;
-        default: clicks++
-            clueType.text("clicks:");
-            clueParagraph.text(clicks);
-            break;
+        switch (hintNum) {
+            case 1: clueType.text("Release Date:");
+                clueParagraph.text(movieInfo.Released);
+                score - 5
+                break;
+            case 2: clueType.text("Rated:");
+                clueParagraph.text(movieInfo.Rated);
+                score - 5
+                break;
+            case 3: clueType.text("Produced By:");
+                clueParagraph.text(movieInfo.Production);
+                score - 5
+                break;
+            case 4: clueType.text("Directed By:");
+                clueParagraph.text(movieInfo.Director);
+                score - 5
+                break;
+            case 5: clueType.text("Actors:");
+                clueParagraph.text(movieInfo.Actors);
+                score - 5
+                break;
+            case 6: clueType.text("Plot:");
+                clueParagraph.text(movieInfo.Plot);
+                score - 5
+                break;
+            case 7: clueType.text("No more clues!");
+                clueParagraph.text("🙃");
+                break;
+            case 8: clueType.text("What were you expecting?");
+                clueParagraph.text("No more!");
+                break;
+            case 9: clueType.text("bruh");
+                clueParagraph.text("😂");
+                break;
+            case 10: clueType.text("Here's a hint:");
+                clueParagraph.text("It's a movie.");
+                break;
+            case 11: clueType.text("OK. Fine. New game:");
+                clueParagraph.text("How many clicks can you get before the timer runs out?");
+                break;
+            default: clicks++
+                clueType.text("clicks:");
+                clueParagraph.text(clicks);
+                break;
+        }
     }
 }
 
 // End card for running out of time.
 function gameOver() {
+    $("#next-clue").data("state", "inactive")
     var cardContainer = $("#cardContainer")
     var cell = $("<div>");
     cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
@@ -220,11 +223,13 @@ function gameOver() {
     var hsButton = $("<a>");
     hsButton.attr("class", "button");
     hsButton.attr("id", "hsButton");
+    hsButton.attr("href", "walkoffame.html")
     hsButton.text("Walk of Fame")
     buttonDiv.append(hsButton);
     var retryButton = $("<a>");
     retryButton.attr("class", "button");
     retryButton.attr("id", "retryButton");
+    retryButton.attr("href", "javascript:window.location.reload()");
     retryButton.text("Retry Game")
     buttonDiv.append(retryButton);
 
@@ -250,4 +255,4 @@ function gameOver() {
 
 }
 
-$("#next-clue").on("click", loadNextQuestion);
+$("#next-clue").on("click", loadNextHint);

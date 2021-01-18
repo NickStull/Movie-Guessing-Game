@@ -425,5 +425,13 @@ footer {
   color: #fefefe;
 }
 
-  
+#hsButton {
+  border-radius: 5000px 0 0 5000px;
+  background-color: #1db954;
+}
+
+#retryButton {
+  border-radius: 0 5000px 5000px 0;
+  background-color: #1db954;
+}
   
