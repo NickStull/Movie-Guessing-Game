@@ -326,7 +326,7 @@ footer {
   #cardContainer {
     position: fixed;
     overflow-y: scroll;
-    top: 50px;
+    top: 150px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -348,7 +348,7 @@ footer {
   background-color: #1db954;
   color: #212121;
   font-weight: bold;
-  margin-right: 15px;
+  margin-right: 0px;
   margin-bottom: 10px;
   border: #121212;
 }
@@ -358,6 +358,7 @@ footer {
 #game-timer {
   font-family: Orbitron;
 }
+
 
 /* movie input form  */
 
@@ -375,7 +376,7 @@ footer {
 }
 
 .centered {
-  margin: 0;
+  margin: 5px;
   bottom: 50%;
   top: 50%;
 }
@@ -386,10 +387,10 @@ footer {
 
 /* centering nav bar stuff */
 
-/* .navy-center {
-  margin: auto;
-  width: 50%;
-} */
+.controller-box {
+  justify-content:center;
+}
+
 
 /* card fade in classes */
 
