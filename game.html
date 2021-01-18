@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body id="game-body">
   <nav class="top-bar topbar-responsive sticky">
     <div class="top-bar-title">
       <span data-responsive-toggle="topbar-responsive" data-hide-for="small">
@@ -32,27 +32,28 @@
               </div>
             </div>
           </li>
-          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next Clue</button></li>
+          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next Hint</button></li>
           <li id="game-timer">Time Remaining: 45</li>
         </ul>
       </div>
     </div>
-  </nav>        
+  </nav> 
+  <div id="game-container">       
       <div id="cardContainer" class="grid-x grid-padding-x align-justified">
   
         <div class="cell small-10 medium-8 large-6 my-cell fade-in">
           <div class="card my-card" style="width: 100%">
             <div id="clue-type0" class="card-divider my-card-divider">
-              Clue Type
             </div>
             <div id="clue-content0" class="card-section my-card-section">
-              <p>Clue Content. Michael Jordan Short Clues
+              <p>
               </p>
             </div>
           </div>
-        </div>
+        </div> 
         
       </div>
+    </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script
