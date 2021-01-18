@@ -121,6 +121,7 @@ footer {
 .title {
     color:rgb(235, 198, 130);
     font-size: 50px;
+    margin: 25px;
     text-align: center;
     text-decoration: underline;
     text-shadow: 1px 1px 2px #0a0a0a;
