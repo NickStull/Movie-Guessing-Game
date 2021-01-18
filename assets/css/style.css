@@ -112,11 +112,33 @@ footer {
 }
 
 /* Walk of Fame */
+.title {
+    font-size: 50px;
+}
+.grid-style {
+    justify-content: center;
 
+}
+
+.card-container {
+    position: relative;
+}
 .star-card {
-    width: 100%;
-    border: 2px solid green;
+    width: 300px;
+    border: 2px solid silver;
+}
+.star-card-text {
     font-family: 'Overpass', sans-serif;
+    color:rgb(235, 198, 130);
+    position: absolute;
+    text-align: center;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3em;
+    text-shadow: 1px 1px 2px #0a0a0a;
+    /* background-color: black; */
+    white-space: nowrap;
 }
 
 /* nav bar css */
@@ -402,7 +424,6 @@ footer {
   background-color: #212121;
   color: #fefefe;
 }
-
 
   
   
