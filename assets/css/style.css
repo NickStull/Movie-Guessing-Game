@@ -3,14 +3,15 @@
     font-family: lato;
 }
 
-body {
+#game-container {
   background: url("https://wallpaperaccess.com/full/2000200.jpg") 50% no-repeat;
   background-size: cover;
     height: 75vh;
     background-color: #212121;
-    color:white;
     text-align: center;
     justify-content: center;
+    overflow:hidden;
+    /* position:unset; */
 }
 /* Hero image */
 .hero-section {
@@ -159,7 +160,7 @@ footer {
   }
   
   .topbar-responsive .menu li:last-of-type {
-    margin-right: 0;
+    margin-right: 20px;
   }
   
   .topbar-responsive .menu a {
@@ -278,6 +279,7 @@ footer {
     position: -webkit-sticky;
     position: sticky;
    top: 0;
+   z-index: 1;
   }
 /* clue card css */
  
@@ -288,14 +290,36 @@ footer {
 }
 
   .my-card-divider {
-    background-color: #535353;
+    background-color: #7dd79d;
     color: #212121;
     font-weight: bold;
   }
 
   .my-cell {
     margin: 15px 15px 0px 15px;
-    opacity: 0.95;
+    opacity: 0.85;
+    animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+  position: static;
+  z-index: -1;
+  }
+
+  #cardContainer {
+    position: fixed;
+    overflow-y: scroll;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* z-index: -1; */
+  }
+  @media only screen and (max-width: 600px) {
+    #cardContainer {
+      top: 150px;
+    }
   }
   
   .my-card-section {
@@ -353,19 +377,13 @@ footer {
 
 /* card fade in classes */
 
-.fade-in {
-  animation: fadeIn ease 5s;
-  -webkit-animation: fadeIn ease 5s;
-  -moz-animation: fadeIn ease 5s;
-  -o-animation: fadeIn ease 5s;
-  -ms-animation: fadeIn ease 5s;
-}
+
 @keyframes fadeIn {
   0% {
     opacity:0;
   }
   100% {
-    opacity:0.95;
+    opacity:0.85;
   }
 }
 
@@ -374,7 +392,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.95;
+    opacity:0.85;
   }
 }
 
@@ -383,7 +401,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.95;
+    opacity:0.85;
   }
 }
 
@@ -392,7 +410,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.95;
+    opacity:0.85;
   }
 }
 
@@ -401,8 +419,13 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.95;
-}}
+    opacity:0.85;
+}} 
+
+#game-body {
+  background-color: #212121;
+  color: #fefefe;
+}
 
   
   
