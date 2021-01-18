@@ -113,7 +113,7 @@ footer {
 
 /* Walk of Fame */
 .walk-of-fame-background {
-    background: url("https://images-na.ssl-images-amazon.com/images/I/71Xr22vcpWL._AC_SL1000_.jpg") 50% no-repeat;
+    background: url("https://images-na.ssl-images-amazon.com/images/I/71Xr22vcpWL._AC_SL1000_.jpg") 100% no-repeat;
     background-size: cover;
     height: 100vh;
     opacity: 100%;
@@ -121,16 +121,14 @@ footer {
 .title {
     color:rgb(235, 198, 130);
     font-size: 50px;
-    margin: 25px;
+    /* margin: 25px; */
     text-align: center;
     text-decoration: underline;
     text-shadow: 1px 1px 2px #0a0a0a;
-    /* line-height: 70px; */
 }
 
 .grid-style {
     justify-content: center;
-
 }
 
 .card-container {
@@ -154,6 +152,13 @@ footer {
     white-space: nowrap;
 }
 
+/* Modal/Reveal/Popup */
+#topScoreModal {
+    background-color: #212121;
+    color: #fefefe;
+    width: 400px;
+    text-align: center;
+}
 /* nav bar css */
 
 .topbar-responsive {
