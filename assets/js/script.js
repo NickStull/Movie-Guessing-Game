@@ -49,7 +49,6 @@ $("#guessButton").click(function () {
             var endCard = $("<div>"); //clueType
             endCard.attr("class", "card-divider my-card-divider");
             endCard.attr("id", "endCard"); // "GAME OVER!"
-            endCard.attr("color", "white");
             var endContent = $("<div>"); //clueContent
             endContent.attr("class", "card-section my-card-section");
             endContent.attr("id", "endContent");
