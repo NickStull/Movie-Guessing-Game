@@ -10,7 +10,6 @@ var movieInfo = {}
 var hintNum = 0
 var clicks = 0
 var correctGuess = false;
-var finalScore;
 
 var timer = $("#game-timer");
 
@@ -49,7 +48,7 @@ function guessTrigger() {
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             correctGuess = true;
-            finalScore = score;
+            localStorage.setItem("movieIQScore", JSON.stringify(score));
             var cardContainer = $("#cardContainer")
             var cell = $("<div>");
             cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
@@ -234,7 +233,7 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
-    finalScore = score;
+    localStorage.setItem("movieIQScore", JSON.stringify(score));
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
@@ -301,5 +300,4 @@ function gameOver() {
     console.log($("#next-clue").data("state"))
 
 }
-
 $("#next-clue").on("click", loadNextHint);
