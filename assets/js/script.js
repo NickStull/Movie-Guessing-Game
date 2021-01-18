@@ -24,10 +24,6 @@ $.ajax({
 
 });
 
-//guess logic
-//whole thing needs to run on click
-//this need to be directed to the submit text field
-
 
 
 $("#guessButton").click(guessTrigger);
@@ -77,6 +73,22 @@ function guessTrigger() {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
+            var buttonDiv = $("<div>");
+            buttonDiv.attr("class", "button-group");
+            buttonDiv.attr("id", "buttonDiv");
+            endContent.append(buttonDiv);
+            var hsButton = $("<a>");
+            hsButton.attr("class", "button");
+            hsButton.attr("id", "hsButton");
+            hsButton.attr("href", "walkoffame.html")
+            hsButton.text("Walk of Fame")
+            buttonDiv.append(hsButton);
+            var retryButton = $("<a>");
+            retryButton.attr("class", "button");
+            retryButton.attr("id", "retryButton");
+            retryButton.attr("href", "javascript:window.location.reload()");
+            retryButton.text("Retry Game");
+            buttonDiv.append(retryButton);
             $("#guessButton").off();
             $("#guessInput").off();
             $("#next-clue").data("state", "inactive");
