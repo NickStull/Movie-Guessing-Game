@@ -3,8 +3,8 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "1eff814"
+var giphyAPIKey = "kb6tCqbZedOZ5KDUdGtBV8b6TtX9FF8s"
 var score = 0;
 var movieInfo = {}
 var hintNum = 0
@@ -53,6 +53,7 @@ function guessTrigger() {
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             correctGuess = true;
+            console.log("Win score: " + score);
             localStorage.setItem("movieIQScore", JSON.stringify(score));
             var cardContainer = $("#cardContainer")
             var cell = $("<div>");
@@ -242,8 +243,8 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
-    localStorage.setItem("movieIQScore", JSON.stringify(score));
     score = 0;
+    localStorage.setItem("movieIQScore", JSON.stringify(score));
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
