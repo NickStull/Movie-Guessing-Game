@@ -30,7 +30,18 @@ $.ajax({
 
 
 
-$("#guessButton").click(function (event) {
+$("#guessButton").click(guessTrigger);
+
+$("#guessInput").keypress(function (event) {
+    if (event.which === 13) {
+        guessTrigger();
+    };
+});
+
+
+
+function guessTrigger() {
+
 
     var userGuess = $("#guessInput").val().trim();
 
@@ -65,7 +76,8 @@ $("#guessButton").click(function (event) {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
-            $("guessButton").off(event);
+            $("guessButton").off();
+            $("guessInput").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
@@ -91,7 +103,7 @@ $("#guessButton").click(function (event) {
             $("#guessInput").effect("shake");
         }
     });
-});
+};
 
 
 function hintTimer() {
@@ -136,7 +148,7 @@ function hintTimer() {
 function loadNextHint() {
     //adds 1 to hint num
     console.log($("#next-clue").data("state"))
-    if($("#next-clue").data("state") != "inactive") {
+    if ($("#next-clue").data("state") != "inactive") {
         hintNum++
         var cardContainer = $("#cardContainer")
         var cell = $("<div>");
@@ -269,7 +281,7 @@ function gameOver() {
                 endContent.append(movieGif);
             }
         });
-    
+
     console.log($("#next-clue").data("state"))
 
 }
