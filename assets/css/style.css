@@ -326,7 +326,7 @@ footer {
   #cardContainer {
     position: fixed;
     overflow-y: scroll;
-    top: 150px;
+    top: 210px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -334,7 +334,7 @@ footer {
   }
   @media only screen and (max-width: 600px) {
     #cardContainer {
-      top: 150px;
+      top: 175px;
     }
   }
   
