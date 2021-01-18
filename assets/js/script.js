@@ -33,6 +33,7 @@ $.ajax({
 $("#guessButton").click(guessTrigger);
 
 $("#guessInput").keypress(function (event) {
+
     if (event.which === 13) {
         guessTrigger();
     };
@@ -76,8 +77,8 @@ function guessTrigger() {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
-            $("guessButton").off();
-            $("guessInput").off();
+            $("#guessButton").off();
+            $("#guessInput").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
