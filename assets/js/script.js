@@ -243,6 +243,7 @@ function loadNextHint() {
 // End card for running out of time.
 function gameOver() {
     localStorage.setItem("movieIQScore", JSON.stringify(score));
+    score = 0;
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
