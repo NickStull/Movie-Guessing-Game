@@ -5,7 +5,7 @@ var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
 var omdbAPIKey = ""
 var giphyAPIKey = ""
-var score = 100
+var score = 0;
 var movieInfo = {}
 var hintNum = 0
 var clicks = 0
@@ -122,7 +122,7 @@ function guessTrigger() {
 function hintTimer() {
 
     let timeLeft = 45;
-
+    score = 100;
     if (hintNum === 0) {
         $("#clue-type0").text("Genre:");
         $("#clue-content0").text(movieInfo.Genre)

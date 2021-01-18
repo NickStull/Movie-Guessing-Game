@@ -13,28 +13,51 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1 class="title">Walk of Fame</h1>
-    <div class="flex-container">
-        <div id="my-grid" class="grid-x align-left grid-style">   
+    <nav class="top-bar topbar-responsive">
+        <div class="top-bar-title">
+          <span data-responsive-toggle="topbar-responsive" data-hide-for="small">
+            <button class="menu-icon" type="button" data-toggle></button>
+          </span>
+          <a class="topbar-responsive-logo" href="#"><strong>movieIQ🎬</strong></a>
         </div>
-    </div>
+        <div id="topbar-responsive" class="topbar-responsive-links">
+          <div class="top-bar-right">
+            <ul class="menu simple vertical medium-horizontal">
+              <li><a href="index.html">Home</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <main class="walk-of-fame-background">
+        <h1 class="title">
+            <a href="https://www.freepnglogos.com/images/oscar-38937.html" title="Image from freepnglogos.com"><img src="https://www.freepnglogos.com/uploads/oscar-png/the-oscar-emblem-8.png" width="50" alt="the oscar emblem" /></a>
+            Walk of Fame
+        </h1>
+        <div class="flex-container">
+            <div id="my-grid" class="grid-x align-left grid-style">   
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="reveal" id="topScoreModal" data-reveal>
+            <h1>Congratulations, you made the Walk of Fame!</h1>
+            <div class="input-group input-group-rounded centered">
+                <input id="user-name" class="input-group-field" type="text" value="Your name here">
+                <div class="input-group-button">
+                  <input id="enter-button" type="submit" class="button secondary" value="Enter" data-close>
+                </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="false">&times;</span>
+            </button>
+        </div>
+    </main>
+    
     
     <!-- <div id="popup-modal" class="reveal-modal full" data-reveal aria-labelledby="pop-up-modal-title" aria-hidden="true" role="dialog">
         test
     </div> -->
     
-    <div class="reveal" id="topScoreModal" data-reveal>
-        <h1>Congratulations, you made the Walk of Fame!</h1>
-        <div class="input-group input-group-rounded centered">
-            <input id="user-name" class="input-group-field" type="text" value="Your name here">
-            <div class="input-group-button">
-              <input id="enter-button" type="submit" class="button secondary" value="Enter" data-close>
-            </div>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="false">&times;</span>
-        </button>
-    </div>
+    
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
