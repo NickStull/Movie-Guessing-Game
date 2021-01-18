@@ -53,6 +53,7 @@ function guessTrigger() {
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             correctGuess = true;
+            console.log("Win score: " + score);
             localStorage.setItem("movieIQScore", JSON.stringify(score));
             var cardContainer = $("#cardContainer")
             var cell = $("<div>");
@@ -242,8 +243,8 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
-    localStorage.setItem("movieIQScore", JSON.stringify(score));
     score = 0;
+    localStorage.setItem("movieIQScore", JSON.stringify(score));
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");

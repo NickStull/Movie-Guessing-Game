@@ -15,7 +15,7 @@ $( document ).ready(function() {
     
     // If there is persistent data, compare the last entry to the users score
     if (topScores) { 
-        if (userScore > topScores[topScores.length - 1].score) {
+        if (topScores.length < 10 || userScore > topScores[topScores.length - 1].score) {
             //Pop modal
             $("#topScoreModal").foundation("open");
         }
