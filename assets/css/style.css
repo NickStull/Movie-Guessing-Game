@@ -109,7 +109,9 @@ footer {
         position:relative;
     }
 }
-
+#exampleModal1 {
+    color:black;
+}
 /* Walk of Fame */
 .title {
     font-size: 50px;
