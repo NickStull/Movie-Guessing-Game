@@ -24,13 +24,21 @@ $.ajax({
 
 });
 
-//guess logic
-//whole thing needs to run on click
-//this need to be directed to the submit text field
+
+
+$("#guessButton").click(guessTrigger);
+
+$("#guessInput").keypress(function (event) {
+
+    if (event.which === 13) {
+        guessTrigger();
+    };
+});
 
 
 
-$("#guessButton").click(function (event) {
+function guessTrigger() {
+
 
     var userGuess = $("#guessInput").val().trim();
 
@@ -65,8 +73,40 @@ $("#guessButton").click(function (event) {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
-            $("guessButton").off(event);
+            var buttonDiv = $("<div>");
+            buttonDiv.attr("class", "button-group");
+            buttonDiv.attr("id", "buttonDiv");
+            endContent.append(buttonDiv);
+            var hsButton = $("<a>");
+            hsButton.attr("class", "button");
+            hsButton.attr("id", "hsButton");
+            hsButton.attr("href", "walkoffame.html")
+            hsButton.text("Walk of Fame")
+            buttonDiv.append(hsButton);
+            var retryButton = $("<a>");
+            retryButton.attr("class", "button");
+            retryButton.attr("id", "retryButton");
+            retryButton.attr("href", "javascript:window.location.reload()");
+            retryButton.text("Retry Game");
+            buttonDiv.append(retryButton);
+            $("#guessButton").off();
+            $("#guessInput").off();
             $("#next-clue").data("state", "inactive");
+
+            $.ajax({
+                url: `https://api.giphy.com/v1/gifs/search?q=${movieTitle}&api_key=${giphyAPIKey}&limit=3`,
+                method: "GET"
+            }).then(function (memes) {
+                var results = memes.data;
+
+                for (var i = 0; i < results.length; i++) {
+
+                    var movieGif = $("<img>");
+                    movieGif.attr("src", results[i].images.fixed_height.url);
+
+                    endContent.append(movieGif);
+                }
+            });
 
 
 
@@ -76,7 +116,7 @@ $("#guessButton").click(function (event) {
             $("#guessInput").effect("shake");
         }
     });
-});
+};
 
 
 function hintTimer() {
@@ -121,7 +161,7 @@ function hintTimer() {
 function loadNextHint() {
     //adds 1 to hint num
     console.log($("#next-clue").data("state"))
-    if($("#next-clue").data("state") != "inactive") {
+    if ($("#next-clue").data("state") != "inactive") {
         hintNum++
         var cardContainer = $("#cardContainer")
         var cell = $("<div>");
@@ -254,7 +294,7 @@ function gameOver() {
                 endContent.append(movieGif);
             }
         });
-    
+
     console.log($("#next-clue").data("state"))
 
 }
