@@ -3,8 +3,8 @@ var movieList = [
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
 // var container = $(".container");
-var omdbAPIKey = ""
-var giphyAPIKey = ""
+var omdbAPIKey = "20874aee"
+var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
 var score = 0;
 var movieInfo = {}
 var hintNum = 0
@@ -63,6 +63,8 @@ function guessTrigger() {
             endContent.attr("id", "endContent");
             var endH1 = $("<H1>"); // The movie was: xxxx
             var endH2 = $("<H2>"); // Your score: xxxx
+            $("li:nth-child(2)").remove();
+            $("li:nth-child(2)").remove();
             cardContainer.prepend(cell);
             cell.append(card);
             card.append(endCard);
