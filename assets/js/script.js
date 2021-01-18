@@ -10,7 +10,7 @@ var movieInfo = {}
 var hintNum = 0
 var clicks = 0
 var correctGuess = false;
-
+var finalScore;
 
 var timer = $("#game-timer");
 
@@ -49,7 +49,7 @@ function guessTrigger() {
 
         if (response2.Search[0].imdbID === movieInfo.imdbID) {
             correctGuess = true;
-
+            finalScore = score;
             var cardContainer = $("#cardContainer")
             var cell = $("<div>");
             cell.attr("class", "cell small-12 medium-8 large-6 my-cell");
@@ -187,27 +187,27 @@ function loadNextHint() {
         switch (hintNum) {
             case 1: clueType.text("Release Date:");
                 clueParagraph.text(movieInfo.Released);
-                score - 5
+                score -= 5;
                 break;
             case 2: clueType.text("Rated:");
                 clueParagraph.text(movieInfo.Rated);
-                score - 5
+                score -= 5;
                 break;
             case 3: clueType.text("Produced By:");
                 clueParagraph.text(movieInfo.Production);
-                score - 5
+                score -= 5;
                 break;
             case 4: clueType.text("Directed By:");
                 clueParagraph.text(movieInfo.Director);
-                score - 5
+                score -= 5;
                 break;
             case 5: clueType.text("Actors:");
                 clueParagraph.text(movieInfo.Actors);
-                score - 5
+                score -= 5;
                 break;
             case 6: clueType.text("Plot:");
                 clueParagraph.text(movieInfo.Plot);
-                score - 5
+                score -= 5;
                 break;
             case 7: clueType.text("No more clues!");
                 clueParagraph.text("🙃");
@@ -234,6 +234,9 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
+    finalScore = score;
+    $("#guessButton").off();
+    $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
     var cardContainer = $("#cardContainer");
     var cell = $("<div>");

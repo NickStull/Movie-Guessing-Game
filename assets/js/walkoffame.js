@@ -9,7 +9,7 @@ $( document ).ready(function() {
     
     // If there is persistent data, compare the last entry to the users score
     if (topScores) { 
-        if (score > topScores[topScores.length - 1].score) {
+        if (finalScore > topScores[topScores.length - 1].score) {
             console.log("Top scores");
             //Pop modal
             $("#topScoreModal").foundation("open");
@@ -17,7 +17,7 @@ $( document ).ready(function() {
         renderStars();
     }
     // If there is no persistent data, the user is in the top ten
-    else if (score > 0) { 
+    else if (finalScore > 0) { 
         console.log("No top scores");
         $("#topScoreModal").foundation("open"); 
     }
@@ -61,7 +61,7 @@ $("#enter-button").on("click", function(event) {
 
     let highscore = {
         name: userName,
-        score: score
+        score: finalScore
     };
 
     if (topScores) {
