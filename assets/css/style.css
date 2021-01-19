@@ -348,7 +348,7 @@ footer {
 
   .my-cell {
     margin: 15px 15px 0px 15px;
-    opacity: 0.85;
+    opacity: 0.95;
     animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
   -moz-animation: fadeIn ease 3s;
@@ -440,7 +440,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -449,7 +449,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -458,7 +458,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -467,7 +467,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -476,7 +476,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
 }} 
 
 #game-body {
