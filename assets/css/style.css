@@ -205,8 +205,9 @@ footer {
   .logo-main {
       margin: 20px;
   }
-  .topbar-responsive .menu {
+  .topbar-responsive .my-menu {
     background: #212121;
+    justify-content: center;
   }
   
   .topbar-responsive .menu li:last-of-type {
@@ -391,6 +392,7 @@ footer {
 
 #game-timer {
   font-family: Orbitron;
+  margin-left: 40px;
 }
 
 
@@ -417,6 +419,10 @@ footer {
 
 .my-button {
   margin-top: 8px;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* margin-left: 35px; */
 }
 
 /* centering nav bar stuff */
@@ -486,5 +492,14 @@ footer {
 #retryButton {
   border-radius: 0 5000px 5000px 0;
   background-color: #1db954;
+}
+
+.my-table {
+  display: table;
+  margin: 0 auto;
+}
+
+ul.my-menu li {
+  display:block;
 }
   
