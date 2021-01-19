@@ -7,9 +7,11 @@ var omdbAPIKey = "20874aee"
 var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
 var score = 0;
 var movieInfo = {}
-var hintNum = 0
-var clicks = 0
+var hintNum = 0;
+var clicks = 0;
 var correctGuess = false;
+var timeInterval;
+var timeLeft = 45;
 
 var timer = $("#game-timer");
 
@@ -18,7 +20,6 @@ $.ajax({
     method: "GET",
 }).then(function (response) {
     movieInfo = response
-    // console.log(movieInfo.Title)
     hintTimer();
 
 });
@@ -130,14 +131,14 @@ function guessTrigger() {
 
 function hintTimer() {
 
-    let timeLeft = 45;
+    timeLeft = 45;
     score = 100;
     if (hintNum === 0) {
         $("#clue-type0").text("Genre:");
         $("#clue-content0").text(movieInfo.Genre)
     }
 
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         // Show the time remaining in the upper right corner
         timer.text("Time Remaining: " + timeLeft)
         //reduce score and timer by 1
@@ -154,7 +155,6 @@ function hintTimer() {
         // Game over if timer runs out or all questions are answered
         else if (timeLeft === 0) {
             // Stop the timer
-            console.log("Answer: " + movieInfo.Title)
             timer.text("Time Remaining: " + timeLeft)
             clearInterval(timeInterval);
             gameOver();
@@ -169,7 +169,6 @@ function hintTimer() {
 
 function loadNextHint() {
     //adds 1 to hint num
-    console.log($("#next-clue").data("state"))
     if ($("#next-clue").data("state") != "inactive") {
         hintNum++
         var cardContainer = $("#cardContainer")
@@ -243,7 +242,11 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
+    clearInterval(timeInterval);
+    timeLeft = 0
     score = 0;
+    timer.attr("style", "color: red; font-weight: bold;")
+    timer.text("Time Remaining: " + timeLeft)
     localStorage.setItem("movieIQScore", JSON.stringify(score));
     $("#give-up").off();
     $("#guessButton").off();
@@ -308,9 +311,6 @@ function gameOver() {
                 endContent.append(movieGif);
             }
         });
-
-    console.log($("#next-clue").data("state"))
-
 }
 $("#next-clue").on("click", loadNextHint);
 
