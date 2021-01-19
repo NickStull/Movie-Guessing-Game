@@ -2,9 +2,7 @@
     justify-content: center;
     font-family: lato;
 }
-body {
-    background-color: #212121;
-}
+  
 #game-container {
   background: url("https://wallpaperaccess.com/full/2000200.jpg") 50% no-repeat;
   background-size: cover;
@@ -111,7 +109,12 @@ footer {
         border-radius: 5px;
     }
 }
+@media screen and (max-width: 640px) {
 
+    footer {
+        position:relative;
+    }
+}
 
 /* Walk of Fame */
 .walk-of-fame-background {
@@ -120,33 +123,10 @@ footer {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
-    /* bottom: 0px; */
+    height: 100%;
+    /* opacity: 100%; */
     justify-content: center;
-    background-position: center;
 }
-
-@media screen and (max-width: 1500px) {
-
-    .walk-of-fame-background {
-        background: url("https://images-na.ssl-images-amazon.com/images/I/71Xr22vcpWL._AC_SL1000_.jpg") 100% no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        height: 100%;
-        justify-content: center;
-        background-position: center;
-    }
-}
-
-@media screen and (max-width: 640px) {
-
-    footer {
-        position:relative;
-    }
-}
-
 .title {
     color:rgb(235, 198, 130);
     font-size: 50px;
