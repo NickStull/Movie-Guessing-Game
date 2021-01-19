@@ -379,7 +379,7 @@ footer {
   }
 
 
-#next-clue {
+#next-clue, #give-up {
   background-color: #1db954;
   color: #212121;
   font-weight: bold;
@@ -422,6 +422,7 @@ footer {
   border-radius: 20px;
   margin-left: 20px;
   margin-right: 20px;
+  background-color: #1db954;
   /* margin-left: 35px; */
 }
 
@@ -502,4 +503,13 @@ footer {
 ul.my-menu li {
   display:block;
 }
+
+a {
+  padding: 10px;
+}
+
+#logo {
+  font-size: 30px;
+}
+
   
