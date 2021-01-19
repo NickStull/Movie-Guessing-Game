@@ -70,9 +70,7 @@ function guessTrigger() {
             endContent.attr("id", "endContent");
             var endH1 = $("<H1>"); // The movie was: xxxx
             var endH2 = $("<H2>"); // Your score: xxxx
-            // removes the guess and hint input;
-            $("li:nth-child(2)").remove();
-            $("li:nth-child(2)").remove();
+            // adds the winning card
             cardContainer.prepend(cell);
             cell.append(card);
             card.append(endCard);
