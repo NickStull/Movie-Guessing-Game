@@ -13,6 +13,11 @@
     overflow:hidden;
     /* position:unset; */
 }
+
+.menu-bar, .title-bar {
+    background-color: #212121;
+    color: #fefefe;
+}
 /* Hero image */
 .hero-section {
     background: url("https://wallpaperaccess.com/full/2000200.jpg") 50% no-repeat;
@@ -100,7 +105,7 @@ footer {
         margin-top: 0px;
         width: 100px;
         font-size: 20px;
-        background-color: rgb(93, 192, 93);
+        background-color: #1db954;
         border-radius: 5px;
     }
 }
@@ -114,9 +119,13 @@ footer {
 /* Walk of Fame */
 .walk-of-fame-background {
     background: url("https://images-na.ssl-images-amazon.com/images/I/71Xr22vcpWL._AC_SL1000_.jpg") 100% no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
-    opacity: 100%;
+    height: 100%;
+    /* opacity: 100%; */
+    justify-content: center;
 }
 .title {
     color:rgb(235, 198, 130);
@@ -130,7 +139,9 @@ footer {
 .grid-style {
     justify-content: center;
 }
-
+.flex-container {
+    margin-top: 40px;
+}
 .card-container {
     position: relative;
 }
@@ -171,6 +182,9 @@ footer {
     vertical-align: middle;
   }
   
+  .logo-main {
+      margin: 20px;
+  }
   .topbar-responsive .menu {
     background: #212121;
   }
