@@ -205,8 +205,9 @@ footer {
   .logo-main {
       margin: 20px;
   }
-  .topbar-responsive .menu {
+  .topbar-responsive .my-menu {
     background: #212121;
+    justify-content: center;
   }
   
   .topbar-responsive .menu li:last-of-type {
@@ -347,7 +348,7 @@ footer {
 
   .my-cell {
     margin: 15px 15px 0px 15px;
-    opacity: 0.85;
+    opacity: 0.95;
     animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
   -moz-animation: fadeIn ease 3s;
@@ -378,7 +379,7 @@ footer {
   }
 
 
-#next-clue {
+#next-clue, #give-up {
   background-color: #1db954;
   color: #212121;
   font-weight: bold;
@@ -391,6 +392,7 @@ footer {
 
 #game-timer {
   font-family: Orbitron;
+  margin-left: 40px;
 }
 
 
@@ -417,6 +419,11 @@ footer {
 
 .my-button {
   margin-top: 8px;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #1db954;
+  /* margin-left: 35px; */
 }
 
 /* centering nav bar stuff */
@@ -434,7 +441,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -443,7 +450,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -452,7 +459,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -461,7 +468,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -470,7 +477,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
 }} 
 
 #game-body {
@@ -488,7 +495,21 @@ footer {
   background-color: #1db954;
 }
 
+.my-table {
+  display: table;
+  margin: 0 auto;
+}
+
+ul.my-menu li {
+  display:block;
+}
+
 a {
   padding: 10px;
 }
+
+#logo {
+  font-size: 30px;
+}
+
   
