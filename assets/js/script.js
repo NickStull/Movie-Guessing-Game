@@ -14,7 +14,7 @@ var correctGuess = false;
 var timer = $("#game-timer");
 
 $.ajax({
-    url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
+    url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
     method: "GET",
 }).then(function (response) {
     movieInfo = response
@@ -41,7 +41,7 @@ function guessTrigger() {
     var userGuess = $("#guessInput").val().trim();
 
     $.ajax({
-        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+        url: `https://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
         method: "GET"
     }).then(function (response2) {
 
