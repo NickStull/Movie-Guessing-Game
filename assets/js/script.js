@@ -98,6 +98,7 @@ function guessTrigger() {
             buttonDiv.append(retryButton);
             $("#guessButton").off();
             $("#guessInput").off();
+            $("#give-up").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
@@ -244,6 +245,7 @@ function loadNextHint() {
 function gameOver() {
     score = 0;
     localStorage.setItem("movieIQScore", JSON.stringify(score));
+    $("#give-up").off();
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
@@ -312,5 +314,5 @@ function gameOver() {
 }
 $("#next-clue").on("click", loadNextHint);
 
-
+$("#give-up").on("click", gameOver);
 
