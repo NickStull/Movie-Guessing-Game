@@ -19,8 +19,8 @@
   <nav class="top-bar topbar-responsive sticky controller-box">
     
     <div id="topbar-responsive" class="topbar-responsive-links">
-      <div class="top-bar-center">
-        <ul class="menu simple vertical medium-vertical">
+      <div class="top-bar-center table">
+        <ul style="list-style-type:none;" class="my-menu simple vertical medium-vertical">
           <li><div class="top-bar-title">
             <a class="topbar-responsive-logo" href="#"><h1>moviQ🎬</h1></a>  
           </div></li>
@@ -32,7 +32,9 @@
               </div>
             </div>
           </li>
-          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next Hint</button></li>
+          <li id="game-box-parent">
+            <button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next Hint</button>
+            <button id="give-up" type="button" class="button topbar-responsive-button my-button centered">Give Up</button></li>
           <li id="game-timer">Time Remaining: 45</li>
         </ul>
       </div>
