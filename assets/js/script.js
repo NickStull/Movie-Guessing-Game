@@ -14,7 +14,7 @@ var correctGuess = false;
 var timer = $("#game-timer");
 
 $.ajax({
-    url: `http://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
+    url: `https://www.omdbapi.com/?t=${movieTitle}&apikey=${omdbAPIKey}`,
     method: "GET",
 }).then(function (response) {
     movieInfo = response
@@ -41,7 +41,7 @@ function guessTrigger() {
     var userGuess = $("#guessInput").val().trim();
 
     $.ajax({
-        url: `http://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
+        url: `https://www.omdbapi.com/?s=${userGuess}&type=movie&apikey=${omdbAPIKey}`,
         method: "GET"
     }).then(function (response2) {
 
@@ -82,24 +82,22 @@ function guessTrigger() {
             endCard.text("You Win");
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
-            var buttonDiv = $("<div>");
-            buttonDiv.attr("class", "button-group");
-            buttonDiv.attr("id", "buttonDiv");
-            endContent.append(buttonDiv);
-            var hsButton = $("<a>");
-            hsButton.attr("class", "button");
+
+            var hsButton = $("<button>");
+            hsButton.attr("class", "button topbar-responsive-button my-button centered");
             hsButton.attr("id", "hsButton");
-            hsButton.attr("href", "walkoffame.html")
-            hsButton.text("Walk of Fame")
-            buttonDiv.append(hsButton);
-            var retryButton = $("<a>");
-            retryButton.attr("class", "button");
+            hsButton.attr("href", "walkoffame.html");
+            hsButton.text("Walk of Fame");
+            $("#buttonList").append(hsButton);
+
+            var retryButton = $("<button>");
+            retryButton.attr("class", "button topbar-responsive-button my-button centered");
             retryButton.attr("id", "retryButton");
             retryButton.attr("href", "javascript:window.location.reload()");
             retryButton.text("Retry Game");
-            buttonDiv.append(retryButton);
-            $("#guessButton").off();
-            $("#guessInput").off();
+            $("#buttonList").append(retryButton);
+            // $("#guessButton").off();
+            // $("#guessInput").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
