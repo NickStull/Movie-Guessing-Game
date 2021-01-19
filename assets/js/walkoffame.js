@@ -9,13 +9,13 @@ $( document ).ready(function() {
     topScores = JSON.parse(localStorage.getItem("savedScores"));
     // Grab the current user score from local storage
     userScore = JSON.parse(localStorage.getItem("movieIQScore"));
-    userScore = 17;
+    console.log("User score: " + userScore);
     // Reset local storage to zero
     localStorage.setItem("movieIQScore", JSON.stringify(0));
     
     // If there is persistent data, compare the last entry to the users score
     if (topScores) { 
-        if (userScore > topScores[topScores.length - 1].score) {
+        if ((topScores.length < 10 && userScore > 0) || userScore > topScores[topScores.length - 1].score) {
             //Pop modal
             $("#topScoreModal").foundation("open");
         }
