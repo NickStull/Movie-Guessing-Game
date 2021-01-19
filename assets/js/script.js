@@ -71,8 +71,8 @@ function guessTrigger() {
             var endH1 = $("<H1>"); // The movie was: xxxx
             var endH2 = $("<H2>"); // Your score: xxxx
             // removes the guess and hint input;
-            $("li:nth-child(2)").remove();
-            $("li:nth-child(2)").remove();
+            $("#firstButton").children().remove();
+            $("#next-clue").remove();
             cardContainer.prepend(cell);
             cell.append(card);
             card.append(endCard);
@@ -83,21 +83,24 @@ function guessTrigger() {
             endH1.text("That's right! the movie is " + movieInfo.Title);
             endH2.text("You did it!");
 
-            var hsButton = $("<button>");
-            hsButton.attr("class", "button topbar-responsive-button my-button centered");
+            var hsButton = $("<a>");
+            hsButton.attr("class", "button")
+            hsButton.attr("type", "button");
             hsButton.attr("id", "hsButton");
             hsButton.attr("href", "walkoffame.html");
             hsButton.text("Walk of Fame");
-            $("#buttonList").append(hsButton);
+            $("#firstButton").append(hsButton);
 
-            var retryButton = $("<button>");
-            retryButton.attr("class", "button topbar-responsive-button my-button centered");
+            var retryButton = $("<a>");
+            retryButton.attr("class", "button");
             retryButton.attr("id", "retryButton");
+            retryButton.attr("type", "button");
             retryButton.attr("href", "javascript:window.location.reload()");
             retryButton.text("Retry Game");
-            $("#buttonList").append(retryButton);
-            // $("#guessButton").off();
-            // $("#guessInput").off();
+            $("#secondButton").append(retryButton);
+
+            $("#guessButton").off();
+            $("#guessInput").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
