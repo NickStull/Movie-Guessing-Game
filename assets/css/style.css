@@ -202,17 +202,11 @@ footer {
     vertical-align: middle;
   }
   
-<<<<<<< HEAD
-  .topbar-responsive .my-menu {
-=======
   .logo-main {
       margin: 20px;
   }
   .topbar-responsive .menu {
->>>>>>> main
     background: #212121;
-    
-
   }
   
   .topbar-responsive .menu li:last-of-type {
@@ -384,7 +378,14 @@ footer {
   }
 
 
-
+#next-clue {
+  background-color: #1db954;
+  color: #212121;
+  font-weight: bold;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  border: #121212;
+}
 
 /* game timer font */
 
@@ -416,24 +417,12 @@ footer {
 
 .my-button {
   margin-top: 8px;
-  background-color: #1db954;
-  border-radius: 20px;
-  color: #212121;
-  font-weight: bold;
-  margin-right: 0px;
-  margin-bottom: 10px;
-  border: #121212;
-  display:inline-block;
 }
 
 /* centering nav bar stuff */
 
 .controller-box {
   justify-content:center;
-}
-
-.my-nav {
-  background-color: #212121;
 }
 
 
@@ -498,13 +487,4 @@ footer {
   border-radius: 0 5000px 5000px 0;
   background-color: #1db954;
 }
-
-.game-button-parent {
-  white-space: nowrap;
-    overflow-x: auto;
-}
-
-.table {
-  display: table;
-  margin: 0 auto;
-}
+  
