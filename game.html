@@ -17,13 +17,17 @@
 
 <body id="game-body">
   <nav class="top-bar topbar-responsive sticky controller-box">
-    
+
     <div id="topbar-responsive" class="topbar-responsive-links">
       <div class="top-bar-center">
         <ul class="menu simple vertical medium-vertical">
-          <li><div class="top-bar-title">
-            <a class="topbar-responsive-logo" href="#"><h1>moviQ🎬</h1></a>  
-          </div></li>
+          <li>
+            <div class="top-bar-title">
+              <a class="topbar-responsive-logo" href="#">
+                <h1>moviQ🎬</h1>
+              </a>
+            </div>
+          </li>
           <li>
             <div class="input-group input-group-rounded centered">
               <input id="guessInput" class="input-group-field" type="search">
@@ -32,55 +36,58 @@
               </div>
             </div>
           </li>
-          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next Hint</button></li>
+          <li><button id="next-clue" type="button" class="button topbar-responsive-button my-button centered">Next
+              Hint</button></li>
           <li id="game-timer">Time Remaining: 45</li>
         </ul>
       </div>
     </div>
-  </nav> 
-  <div id="game-container">     
-      <div id="cardContainer" class="grid-x grid-padding-x">
-  
-        <div class="cell small-12 medium-8 large-6 my-cell">
-          <div class="card my-card" style="width: 100%">
-            <div id="clue-type0" class="card-divider my-card-divider">
-            </div>
-            <div id="clue-content0" class="card-section my-card-section">
-              <p>
-              </p>
-            </div>
+  </nav>
+  <div id="game-container">
+    <div id="cardContainer" class="grid-x grid-padding-x">
+
+      <div class="cell small-12 medium-8 large-6 my-cell">
+        <div class="card my-card" style="width: 100%">
+          <div id="clue-type0" class="card-divider my-card-divider">
+          </div>
+          <div id="clue-content0" class="card-section my-card-section">
+            <p>
+            </p>
           </div>
         </div>
-        <div class="cell small-10 medium-8 large-6 my-cell invisible">
-          <div class="card my-card" style="width: 100%">
-            <div id="clue-type0" class="card-divider my-card-divider">
-            </div>
-            <div id="clue-content0" class="card-section my-card-section">
-              <p>this is just a way to fix the margin problem. Start with two 
-                invisible cards taking up some space. Still responsive margin, 
-                but not taking up the whole page.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="cell small-10 medium-8 large-7 my-cell invisible">
-          <div class="card my-card" style="width: 100%">
-            <div id="clue-type0" class="card-divider my-card-divider">
-            </div>
-            <div id="clue-content0" class="card-section my-card-section">
-              <p>
-              </p>
-            </div>
-          </div>
-        </div>
-        
       </div>
+      <div class="cell small-10 medium-8 large-6 my-cell invisible">
+        <div class="card my-card" style="width: 100%">
+          <div id="clue-type0" class="card-divider my-card-divider">
+          </div>
+          <div id="clue-content0" class="card-section my-card-section">
+            <p>this is just a way to fix the margin problem. Start with two
+              invisible cards taking up some space. Still responsive margin,
+              but not taking up the whole page.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cell small-10 medium-8 large-7 my-cell invisible">
+        <div class="card my-card" style="width: 100%">
+          <div id="clue-type0" class="card-divider my-card-divider">
+          </div>
+          <div id="clue-content0" class="card-section my-card-section">
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
     integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+
 
 </body>
 
