@@ -487,4 +487,8 @@ footer {
   border-radius: 0 5000px 5000px 0;
   background-color: #1db954;
 }
+
+a {
+  padding: 10px;
+}
   
