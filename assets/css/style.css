@@ -59,7 +59,8 @@ li {
     font-size: 20px;
     background-color: #1db954;
     color: black;
-    border-radius: 5px;
+    border-radius: 20px;
+    text-shadow: none;
 }
 
 /* The team */
@@ -87,10 +88,15 @@ footer {
     text-align: left;
     margin-right: 10px;
 }
+
+.thumbnail:hover {
+    border-color: #1db954;
+}
+
 /* Names */
 .name-link {
     display: block;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     padding-left: 10px;
     font-size: 16px;
     color: #fefefe;
