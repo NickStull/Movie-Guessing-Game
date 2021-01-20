@@ -79,8 +79,8 @@ function guessTrigger() {
             endContent.append(endH1);
             endContent.append(endH2);
             endCard.text("You Win");
-            endH1.text("That's right! the movie is " + movieInfo.Title);
-            endH2.text("You did it!");
+            endH1.text("The movie is " + movieInfo.Title);
+            endH2.text("Click below to see if your score made the Walk of Fame!");
             var buttonDiv = $("<div>");
             buttonDiv.attr("class", "button-group");
             buttonDiv.attr("id", "buttonDiv");
