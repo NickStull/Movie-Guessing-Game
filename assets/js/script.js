@@ -12,7 +12,6 @@ var clicks = 0;
 var correctGuess = false;
 var timeInterval;
 var timeLeft = 60;
-
 var timer = $("#game-timer");
 
 $.ajax({
@@ -130,6 +129,7 @@ function guessTrigger() {
 
 
 function hintTimer() {
+
 
     timeLeft = 60;
     score = 100;

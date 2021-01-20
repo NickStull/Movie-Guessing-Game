@@ -57,8 +57,10 @@ li {
     margin-top: 30px;
     width: 100px;
     font-size: 20px;
-    background-color: rgb(93, 192, 93);
-    border-radius: 5px;
+    background-color: #1db954;
+    color: black;
+    border-radius: 20px;
+    text-shadow: none;
 }
 
 /* The team */
@@ -86,10 +88,15 @@ footer {
     text-align: left;
     margin-right: 10px;
 }
+
+.thumbnail:hover {
+    border-color: #1db954;
+}
+
 /* Names */
 .name-link {
     display: block;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     padding-left: 10px;
     font-size: 16px;
     color: #fefefe;
@@ -190,6 +197,7 @@ footer {
     width: 400px;
     text-align: center;
 }
+
 /* nav bar css */
 
 .topbar-responsive {
@@ -205,8 +213,9 @@ footer {
   .logo-main {
       margin: 20px;
   }
-  .topbar-responsive .menu {
+  .topbar-responsive .my-menu {
     background: #212121;
+    justify-content: center;
   }
   
   .topbar-responsive .menu li:last-of-type {
@@ -347,7 +356,7 @@ footer {
 
   .my-cell {
     margin: 15px 15px 0px 15px;
-    opacity: 0.85;
+    opacity: 0.95;
     animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
   -moz-animation: fadeIn ease 3s;
@@ -360,7 +369,7 @@ footer {
   #cardContainer {
     position: fixed;
     overflow-y: scroll;
-    top: 210px;
+    top: 175px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -378,7 +387,7 @@ footer {
   }
 
 
-#next-clue {
+#next-clue, #give-up {
   background-color: #1db954;
   color: #212121;
   font-weight: bold;
@@ -391,6 +400,7 @@ footer {
 
 #game-timer {
   font-family: Orbitron;
+  margin-left: 40px;
 }
 
 
@@ -417,6 +427,11 @@ footer {
 
 .my-button {
   margin-top: 8px;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #1db954;
+  /* margin-left: 35px; */
 }
 
 /* centering nav bar stuff */
@@ -434,7 +449,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -443,7 +458,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -452,7 +467,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -461,7 +476,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
   }
 }
 
@@ -470,7 +485,7 @@ footer {
     opacity:0;
   }
   100% {
-    opacity:0.85;
+    opacity:0.95;
 }} 
 
 #game-body {
@@ -488,7 +503,26 @@ footer {
   background-color: #1db954;
 }
 
+.my-table {
+  display: table;
+  margin: 0 auto;
+}
+
+ul.my-menu li {
+  display:block;
+}
+
 a {
   padding: 10px;
 }
+
+.game-link {
+  color: white;
+  font-weight: bolder;
+}
+
+.game-link:hover {
+  color: #1db954;
+}
+
   
