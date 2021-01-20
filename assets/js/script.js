@@ -11,7 +11,7 @@ var hintNum = 0;
 var clicks = 0;
 var correctGuess = false;
 var timeInterval;
-var timeLeft = 45;
+var timeLeft = 60;
 
 var timer = $("#game-timer");
 
@@ -131,7 +131,7 @@ function guessTrigger() {
 
 function hintTimer() {
 
-    timeLeft = 45;
+    timeLeft = 60;
     score = 100;
     if (hintNum === 0) {
         $("#clue-type0").text("Genre:");
