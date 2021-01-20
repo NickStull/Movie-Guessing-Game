@@ -2,14 +2,16 @@ var movieList = [
     "the shawshank redemption", "the godfather", "the dark knight", "schindler's list", "pulp fiction", "forrest gump", "inception", "goodfellas", "the green mile", "the silence of the lambs", "se7en", "seven samurai", "the matrix", "spirited away", "saving private ryan", "interstellar", "parasite", "the usual suspects", "the lion king", "the pianist", "back to the future", "american history x", "psycho", "gladiator", "casablanca", "rear window", "alien", "apocalypse now", "indiana jones and the raiders of the lost ark", "django unchained", "wall e", "the shining", "avengers: infinity war", "sunset blvd", "oldboy", "princess mononoke", "spider-man: into the spider-verse", "dr. strangelove or: how i learned to stop worrying and love the bomb", "your name.", "coco", "avengers: endgame", "american beauty", "braveheart", "toy story", "amadeus", "inglourious basterds", "good will hunting", "star wars: episode iv - a new hope", "it's a wonderful life", "the prestige", "the departed", "hamilton", "aliens", "das boot", "star wars: episode vi - return of the jedi", "reservoir dogs", "2001: a space odyssey", "requiem for a dream", "vertigo", "eternal sunshine of the spotless mind", "citizen kane", "full metal jacket", "singin' in the rain", "north by northwest", "snatch", "a clockwork orange", "1917", "scarface", "taxi driver", "lawrence of arabia", "toy story 3", "amélie", "the sting", "indiana jones and the last crusade", "heat", "l.a. confidential", "die hard", "green book", "monty python and the holy grail", "yojimbo", "children of heaven", "unforgiven", "howl's moving castle", "a beautiful mind", "casino", "the great escape", "the wolf of wall street", "pan's labyrinth", "the secret in their eyes", "there will be blood", "lock, stock and two smoking barrels", "my neighbor totoro", "the treasure of the sierra madre", "dial m for murder", "three billboards outside ebbing, missouri", "shutter island", "no country for old men", "v for vendetta", "the sixth sense", "the princess bride",
 ]
 var movieTitle = movieList[Math.floor(Math.random() * movieList.length)];
-// var container = $(".container");
+
 var omdbAPIKey = "20874aee"
 var giphyAPIKey = "IoBtOLBgc3cyRCZxJG1CPCVdUbKuXhZZ"
 var score = 0;
 var movieInfo = {}
-var hintNum = 0
-var clicks = 0
+var hintNum = 0;
+var clicks = 0;
 var correctGuess = false;
+var timeInterval;
+var timeLeft = 60;
 
 var timer = $("#game-timer");
 
@@ -18,7 +20,6 @@ $.ajax({
     method: "GET",
 }).then(function (response) {
     movieInfo = response
-    // console.log(movieInfo.Title)
     hintTimer();
 
 });
@@ -78,8 +79,8 @@ function guessTrigger() {
             endContent.append(endH1);
             endContent.append(endH2);
             endCard.text("You Win");
-            endH1.text("That's right! the movie is " + movieInfo.Title);
-            endH2.text("You did it!");
+            endH1.text("The movie is " + movieInfo.Title);
+            endH2.text("Click below to see if your score made the Walk of Fame!");
             var buttonDiv = $("<div>");
             buttonDiv.attr("class", "button-group");
             buttonDiv.attr("id", "buttonDiv");
@@ -98,6 +99,7 @@ function guessTrigger() {
             buttonDiv.append(retryButton);
             $("#guessButton").off();
             $("#guessInput").off();
+            $("#give-up").off();
             $("#next-clue").data("state", "inactive");
 
             $.ajax({
@@ -129,14 +131,14 @@ function guessTrigger() {
 
 function hintTimer() {
 
-    let timeLeft = 45;
+    timeLeft = 60;
     score = 100;
     if (hintNum === 0) {
         $("#clue-type0").text("Genre:");
         $("#clue-content0").text(movieInfo.Genre)
     }
 
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         // Show the time remaining in the upper right corner
         timer.text("Time Remaining: " + timeLeft)
         //reduce score and timer by 1
@@ -153,7 +155,6 @@ function hintTimer() {
         // Game over if timer runs out or all questions are answered
         else if (timeLeft === 0) {
             // Stop the timer
-            console.log("Answer: " + movieInfo.Title)
             timer.text("Time Remaining: " + timeLeft)
             clearInterval(timeInterval);
             gameOver();
@@ -168,7 +169,6 @@ function hintTimer() {
 
 function loadNextHint() {
     //adds 1 to hint num
-    console.log($("#next-clue").data("state"))
     if ($("#next-clue").data("state") != "inactive") {
         hintNum++
         var cardContainer = $("#cardContainer")
@@ -242,8 +242,13 @@ function loadNextHint() {
 
 // End card for running out of time.
 function gameOver() {
+    clearInterval(timeInterval);
+    timeLeft = 0
     score = 0;
+    timer.attr("style", "color: red; font-weight: bold;")
+    timer.text("Time Remaining: " + timeLeft)
     localStorage.setItem("movieIQScore", JSON.stringify(score));
+    $("#give-up").off();
     $("#guessButton").off();
     $("#guessInput").off();
     $("#next-clue").data("state", "inactive");
@@ -306,11 +311,8 @@ function gameOver() {
                 endContent.append(movieGif);
             }
         });
-
-    console.log($("#next-clue").data("state"))
-
 }
 $("#next-clue").on("click", loadNextHint);
 
-
+$("#give-up").on("click", gameOver);
 

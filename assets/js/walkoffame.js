@@ -4,17 +4,16 @@ let topScores = [];
 let userScore;
 
 // Initial load of document
-$( document ).ready(function() {
+$(document).ready(function () {
     // Grab the current array from local storage
     topScores = JSON.parse(localStorage.getItem("savedScores"));
     // Grab the current user score from local storage
     userScore = JSON.parse(localStorage.getItem("movieIQScore"));
-    console.log("User score: " + userScore);
     // Reset local storage to zero
     localStorage.setItem("movieIQScore", JSON.stringify(0));
-    
+
     // If there is persistent data, compare the last entry to the users score
-    if (topScores) { 
+    if (topScores) {
         if ((topScores.length < 10 && userScore > 0) || userScore > topScores[topScores.length - 1].score) {
             //Pop modal
             $("#topScoreModal").foundation("open");
@@ -22,11 +21,11 @@ $( document ).ready(function() {
         renderStars();
     }
     // If there is no persistent data, the user is in the top ten
-    else if (userScore > 0) { 
-        $("#topScoreModal").foundation("open"); 
+    else if (userScore > 0) {
+        $("#topScoreModal").foundation("open");
     }
-        
-}); 
+
+});
 
 function renderStars() {
     let myGrid = $("#my-grid");
@@ -56,7 +55,7 @@ function renderStars() {
 }
 
 // Search button function
-$("#enter-button").on("click", function(event) {
+$("#enter-button").on("click", function (event) {
     event.preventDefault();
 
     // Get user name
@@ -76,7 +75,7 @@ $("#enter-button").on("click", function(event) {
         // Push the user info into the array
         topScores.push(highscore);
         // Sort it by score
-        topScores.sort(function(a, b) {
+        topScores.sort(function (a, b) {
             return b.score - a.score;
         });
     }
@@ -87,12 +86,12 @@ $("#enter-button").on("click", function(event) {
     // Store the array locally
     localStorage.setItem("savedScores", JSON.stringify(topScores));
     renderStars();
-    
+
 });
 
 // Clear the textbox when clicked
-$("#user-name").focus(function() { 
-    $(this).val(""); 
-} );
+$("#user-name").focus(function () {
+    $(this).val("");
+});
 
 renderStars();
