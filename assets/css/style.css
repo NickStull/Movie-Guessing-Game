@@ -361,7 +361,7 @@ footer {
   #cardContainer {
     position: fixed;
     overflow-y: scroll;
-    top: 210px;
+    top: 175px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -508,8 +508,13 @@ a {
   padding: 10px;
 }
 
-#logo {
-  font-size: 30px;
+.game-link {
+  color: white;
+  font-weight: bolder;
+}
+
+.game-link:hover {
+  color: #1db954;
 }
 
   
